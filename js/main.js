@@ -97,7 +97,42 @@ const productGalleries = {
         ]
     }
 };
+// --- 6. VISOR DE ZOOM INDIVIDUAL PARA LAS FOTOS DE LAS ESTANTERÍAS ---
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Crear el contenedor de zoom dinámicamente si no existe
+    let zoomModal = document.getElementById('imageZoomModal');
+    if (!zoomModal) {
+        zoomModal = document.createElement('div');
+        zoomModal.id = 'imageZoomModal';
+        zoomModal.classList.add('image-zoom-modal');
+        zoomModal.innerHTML = '<img id="zoomModalImg" src="" alt="Zoom de producto">';
+        document.body.appendChild(zoomModal);
+    }
+
+    const zoomImg = document.getElementById('zoomModalImg');
+
+    // Escuchar clics en las imágenes de la galería modal
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('#modal-gallery-container img')) {
+            zoomImg.src = e.target.src;
+            zoomModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Cerrar el zoom al hacer clic en cualquier parte de la pantalla negra
+    zoomModal.addEventListener('click', () => {
+        zoomModal.style.display = 'none';
+        // Restaurar scroll solo si el modal principal sigue abierto
+        const mainModal = document.getElementById('productModal');
+        if (!mainModal || !mainModal.classList.contains('active')) {
+            document.body.style.overflow = 'auto';
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
 function openModal(categoryKey) {
     const modal = document.getElementById('productModal');
     const modalTitle = document.getElementById('modal-title');
