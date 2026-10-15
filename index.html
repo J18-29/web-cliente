@@ -71,7 +71,7 @@
         </div>
     </section>
 
-    <!-- Sección 2: Tienda / Supermercado y Cafetería -->
+   <!-- Sección 2: Tienda / Supermercado y Cafetería -->
     <section id="tienda" class="section bg-light">
         <div class="container">
             <div class="section-title">
@@ -79,24 +79,46 @@
                 <p>Todo lo que necesitas para tus compras diarias y tu pausa en el camino.</p>
             </div>
             <div class="cards-grid">
+                <!-- Tarjeta 1: Supermercado -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-basket-shopping"></i></div>
-                    <h3>Supermercado</h3>
-                    <p>Alimentación, refrescos, snacks, productos de primera necesidad y gran variedad para tus compras del día a día.</p>
+                    <h3>Supermercado y Despensa</h3>
+                    <p>Amplia variedad en alimentación, galletas, bollería, conservas, dulces, snacks y productos de limpieza e higiene para el hogar.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-super')">
+                        <i class="fa-solid fa-images"></i> Ver galería de productos
+                    </button>
                 </div>
+
+                <!-- Tarjeta 2: Rincón de Café -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
                     <h3>Rincón de Café y Pausa</h3>
                     <p>Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
                 </div>
+
+                <!-- Tarjeta 3: Hielo y Bebidas -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3>Hielo y Bebidas Frías</h3>
-                    <p>Bolsas de hielo disponibles todo el año, refrescos, zumos y bebidas energéticas siempre frías.</p>
+                    <h3>Hielo, Vinos y Bebidas Frías</h3>
+                    <p>Bolsas de hielo disponibles todo el año, refrescos, cervezas, zumos, vinos y bebidas espirituosas siempre frías.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-bebidas')">
+                        <i class="fa-solid fa-images"></i> Ver galería de productos
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- MODAL / VENTANA FLOTANTE PARA GALERÍA -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title">Galería de Productos</h3>
+            <div class="modal-gallery-grid" id="modal-gallery-container">
+                <!-- Las imágenes se cargarán dinámicamente -->
+            </div>
+        </div>
+    </div>
 
     <!-- Sección Contacto y Horarios -->
     <section id="contacto" class="section bg-dark text-white">
