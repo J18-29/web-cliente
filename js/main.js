@@ -1,59 +1,60 @@
 // --- JS PRINCIPAL DE CARBURANTES FILABRES ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Manejo del menú de navegación en móviles
-    const navMenu = document.querySelector('.nav-menu');
-    const header = document.querySelector('.header');
+    initMobileMenu();
+    initHeaderScroll();
+    initSmoothScroll();
+    initDynamicYear();
+    initProductGalleries();
+    initImageZoom();
+    initFloatingMenu();
+});
 
-    // Crear botón hamburguesa dinámicamente si no existe en el HTML
+// 1. Menú móvil (Hamburguesa)
+function initMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
     let menuToggle = document.querySelector('.menu-toggle');
+
     if (!menuToggle) {
         menuToggle = document.createElement('button');
         menuToggle.classList.add('menu-toggle');
-        menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+        menuToggle.setAttribute('aria-label', 'Abrir menú');
         menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
         
         const navContainer = document.querySelector('.nav-container');
-        if (navContainer) {
-            navContainer.appendChild(menuToggle);
-        }
+        if (navContainer) navContainer.appendChild(menuToggle);
     }
 
-    // Toggle para abrir/cerrar menú móvil
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const isOpen = navMenu.classList.contains('active');
-            menuToggle.innerHTML = isOpen 
-                ? '<i class="fa-solid fa-xmark"></i>' 
-                : '<i class="fa-solid fa-bars"></i>';
+            menuToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
         });
     }
+}
 
-    // 2. Cerrar el menú móvil al hacer clic en cualquier enlace
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                if (menuToggle) {
-                    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                }
-            }
-        });
-    });
+// 2. Sombra en la barra de navegación al hacer scroll
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
 
-    // 3. Efecto de sombra en la barra de navegación al hacer scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
+        header.style.boxShadow = window.scrollY > 50 
+            ? '0 4px 20px rgba(0, 0, 0, 0.15)' 
+            : '0 2px 10px rgba(0, 0, 0, 0.1)';
     });
+}
 
-    // 4. Desplazamiento suave (Smooth Scroll) para todos los enlaces internos
+// 3. Desplazamiento suave (Smooth Scroll)
+function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -62,77 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
+}
 
-});
+// 4. Año automático en el footer
+function initDynamicYear() {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
 
-// --- 5. FUNCIONALIDAD DE LA GALERÍA MODAL DE PRODUCTOS ---
-
-// Mapeo de categorías con las fotos reales de tus estanterías
-// --- 5. FUNCIONALIDAD DE LA GALERÍA MODAL DE PRODUCTOS ---
-
+// 5. Datos y control de la galería modal de productos
 const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
-        images: [
-            'assets/img/imagen1.jpeg', 
-            'assets/img/imagen4.jpeg', // Cambia .jpeg por .jpg si esa es su extensión real
-            'assets/img/imagen6.jpeg', 
-            'assets/img/imagen8.jpeg', 
-            'assets/img/imagen9.jpeg'  
-        ]
+        images: ['assets/img/imagen1.jpeg', 'assets/img/imagen4.jpeg', 'assets/img/imagen6.jpeg', 'assets/img/imagen8.jpeg', 'assets/img/imagen9.jpeg']
     },
     'modal-bebidas': {
         title: 'Hielo, Vinos y Bebidas Frías',
-        images: [
-            'assets/img/imagen3.jpeg', 
-            'assets/img/imagen5.jpeg', 
-            'assets/img/imagen7.jpeg'  
-        ]
+        images: ['assets/img/imagen3.jpeg', 'assets/img/imagen5.jpeg', 'assets/img/imagen7.jpeg']
     }
 };
-// --- 6. VISOR DE ZOOM INDIVIDUAL PARA LAS FOTOS DE LAS ESTANTERÍAS ---
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Crear el contenedor de zoom dinámicamente si no existe
-    let zoomModal = document.getElementById('imageZoomModal');
-    if (!zoomModal) {
-        zoomModal = document.createElement('div');
-        zoomModal.id = 'imageZoomModal';
-        zoomModal.classList.add('image-zoom-modal');
-        zoomModal.innerHTML = '<img id="zoomModalImg" src="" alt="Zoom de producto">';
-        document.body.appendChild(zoomModal);
-    }
-
-    const zoomImg = document.getElementById('zoomModalImg');
-
-    // Escuchar clics en las imágenes de la galería modal
-    document.addEventListener('click', (e) => {
-        if (e.target.matches('#modal-gallery-container img')) {
-            zoomImg.src = e.target.src;
-            zoomModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    });
-
-    // Cerrar el zoom al hacer clic en cualquier parte de la pantalla negra
-    zoomModal.addEventListener('click', () => {
-        zoomModal.style.display = 'none';
-        // Restaurar scroll solo si el modal principal sigue abierto
-        const mainModal = document.getElementById('productModal');
-        if (!mainModal || !mainModal.classList.contains('active')) {
-            document.body.style.overflow = 'auto';
-        } else {
-            document.body.style.overflow = 'hidden';
-        }
-    });
-});
 function openModal(categoryKey) {
     const modal = document.getElementById('productModal');
     const modalTitle = document.getElementById('modal-title');
@@ -141,10 +97,8 @@ function openModal(categoryKey) {
     const data = productGalleries[categoryKey];
     if (!data || !modal) return;
 
-    // Asignar título
     if (modalTitle) modalTitle.textContent = data.title;
 
-    // Cargar imágenes dinámicamente
     if (galleryContainer) {
         galleryContainer.innerHTML = '';
         data.images.forEach(imgPath => {
@@ -156,7 +110,6 @@ function openModal(categoryKey) {
         });
     }
 
-    // Mostrar modal y desactivar scroll de fondo
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -169,10 +122,54 @@ function closeModal() {
     }
 }
 
-// Cerrar modal al hacer clic fuera del contenido
-window.addEventListener('click', (e) => {
-    const modal = document.getElementById('productModal');
-    if (e.target === modal) {
-        closeModal();
+function initProductGalleries() {
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('productModal');
+        if (e.target === modal) closeModal();
+    });
+}
+
+// 6. Visor de zoom individual para las fotos de estanterías
+function initImageZoom() {
+    let zoomModal = document.getElementById('imageZoomModal');
+    if (!zoomModal) {
+        zoomModal = document.createElement('div');
+        zoomModal.id = 'imageZoomModal';
+        zoomModal.classList.add('image-zoom-modal');
+        zoomModal.innerHTML = '<img id="zoomModalImg" src="" alt="Zoom de producto">';
+        document.body.appendChild(zoomModal);
     }
-});
+
+    const zoomImg = document.getElementById('zoomModalImg');
+
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('#modal-gallery-container img')) {
+            zoomImg.src = e.target.src;
+            zoomModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    zoomModal.addEventListener('click', () => {
+        zoomModal.style.display = 'none';
+        const mainModal = document.getElementById('productModal');
+        document.body.style.overflow = (mainModal && mainModal.classList.contains('active')) ? 'hidden' : 'auto';
+    });
+}
+
+// 7. Despliegue del botón flotante en móviles
+function initFloatingMenu() {
+    const container = document.querySelector('.social-float-container');
+    const mainButton = document.querySelector('.whatsapp-float');
+
+    if (container && mainButton) {
+        mainButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            container.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+    }
+}

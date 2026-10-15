@@ -3,75 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carburantes Filabres | Gasolinera y Tienda SPAR City en Albánchez</title>
+    <title>Carburantes Filabres | Gasolinera y Supermercado en Albánchez</title>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/estilos.css">
-    <!-- Fuentes de Google (Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Iconos FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Navegación -->
+    <!-- Cabecera / Navegación -->
     <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-gas-pump"></i> <span>Carburantes Filabres</span>
+        <div class="container nav-container">
+            <a href="#inicio" class="logo">
+                <i class="fa-solid fa-gas-pump"></i> Carburantes Filabres
             </a>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#gasolinera">Gasolinera</a></li>
-                <li><a href="#tienda">Tienda / Supermercado</a></li>
-                <li><a href="#contacto" class="btn-nav">Cómo Llegar</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#tienda">Tienda & Café</a></li>
+                    <li><a href="#gasolinera">Gasolinera</a></li>
+                    <li><a href="#contacto">Ubicación</a></li>
+                </ul>
+            </nav>
+            <a href="#contacto" class="btn-primary">Cómo Llegar</a>
+        </div>
     </header>
-    <!-- Héroe / Inicio -->
+
+    <!-- Sección 1: Hero / Inicio con foto real de fondo -->
     <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="badge"><i class="fa-solid fa-clock"></i> Abierto todos los días</span>
+            <div class="badge">
+                <i class="fa-regular fa-clock"></i> Abierto todos los días
+            </div>
             <h1>Carburantes Filabres & Tienda SPAR City</h1>
-<p>Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino.</p>
+            <p>Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino.</p>
             <div class="hero-buttons">
-                <a href="#contacto" class="btn btn-primary">
-                    <i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapa
-                </a>
+                <a href="#contacto" class="btn-light"><i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas</a>
             </div>
         </div>
     </section>
 
-    <!-- Sección 1: Gasolinera -->
-    <section id="gasolinera" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2><i class="fa-solid fa-gas-pump"></i> Estación de Servicio</h2>
-                <p>Combustibles garantizados para cuidar el motor de tu vehículo y darte el mejor rendimiento.</p>
-            </div>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3>Carburantes de Calidad</h3>
-                    <p>Gasolina y Diésel con aditivos de alto rendimiento para proteger el motor de tu vehículo.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
-                    <h3>Lavadero y Limpieza</h3>
-                    <p>Zonas habilitadas para la limpieza y cuidado exterior e interior de tu coche.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3>Aire y Presión</h3>
-                    <p>Punto de comprobación de presión de neumáticos y agua para limpiaparabrisas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Sección 2: Tienda / Supermercado y Cafetería -->
+    <!-- Sección 2: Tienda / Supermercado y Cafetería -->
     <section id="tienda" class="section bg-light">
         <div class="container">
             <div class="section-title">
@@ -79,7 +51,7 @@
                 <p>Todo lo que necesitas para tus compras diarias y tu pausa en el camino.</p>
             </div>
             <div class="cards-grid">
-                <!-- Tarjeta 1: Supermercado -->
+                <!-- Tarjeta Supermercado -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-basket-shopping"></i></div>
                     <h3>Supermercado y Despensa</h3>
@@ -89,14 +61,14 @@
                     </button>
                 </div>
 
-                <!-- Tarjeta 2: Rincón de Café -->
+                <!-- Tarjeta Café -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
                     <h3>Rincón de Café y Pausa</h3>
                     <p>Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
                 </div>
 
-                <!-- Tarjeta 3: Hielo y Bebidas -->
+                <!-- Tarjeta Bebidas e Hielo -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
                     <h3>Hielo, Vinos y Bebidas Frías</h3>
@@ -109,55 +81,78 @@
         </div>
     </section>
 
-    <!-- MODAL / VENTANA FLOTANTE PARA GALERÍA -->
+    <!-- Modal / Galería de Productos -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h3 id="modal-title">Galería de Productos</h3>
             <div class="modal-gallery-grid" id="modal-gallery-container">
-                <!-- Las imágenes se cargarán dinámicamente -->
+                <!-- Se rellena con JavaScript -->
             </div>
         </div>
     </div>
 
-    <!-- Sección Contacto y Horarios -->
-    <section id="contacto" class="section bg-dark text-white">
+    <!-- Sección 3: Gasolinera y Servicios -->
+    <section id="gasolinera" class="section">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Visítanos en Albánchez</h2>
-                    <p>Estamos a tu servicio en la carretera para darte la mejor atención en ruta.</p>
-                    <ul class="info-list">
-                        <li><i class="fa-solid fa-map-location-dot"></i> Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería</li>
-                        <li><i class="fa-solid fa-phone"></i> +34 900 000 000 <small>(Actualizar cuando te lo den)</small></li>
-                        <li><i class="fa-solid fa-gas-pump"></i> <strong>Gasolinera:</strong> Abierto</li>
-                        <li><i class="fa-solid fa-store"></i> <strong>Tienda y Supermercado:</strong> Abierto</li>
-                    </ul>
+            <div class="section-title">
+                <h2><i class="fa-solid fa-gas-pump"></i> Estación de Servicio</h2>
+                <p>Servicios diseñados para cuidar de tu vehículo en ruta.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3>Combustible de Calidad</h3>
+                    <p>Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor.</p>
                 </div>
-                <div class="contact-map">
-                    <!-- Mapa real de Google Maps -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d604.4444602964452!2d-2.1819053999219165!3d37.29256593467997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd654b00646bcffd%3A0x2c6ba2ad35b4dd4a!2sEstaci%C3%B3n%20de%20Servicio%20Carburantes%20Filabres!5e1!3m2!1ses!2ses!4v1791965921717!5m2!1ses!2ses" 
-                        width="100%" 
-                        height="350" 
-                        style="border:0; border-radius: 12px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="strict-origin-when-cross-origin">
-                    </iframe>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-car-burst"></i></div>
+                    <h3>Presión de Neumáticos</h3>
+                    <p>Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
+                    <h3>Área de Lavado</h3>
+                    <p>Mantén tu vehículo impecable con nuestras opciones de lavado a presión.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/34600000000" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Sección 4: Contacto y Ubicación -->
+    <section id="contacto" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fa-solid fa-map-location-dot"></i> Dónde Encontrarnos</h2>
+                <p>Ven a visitarnos en Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería.</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3183.123456789!2d-2.234567!3d37.345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd70123456789!2sCamino%20de%20Cantoria%20a%20Alb%C3%A1nchez%2C%2047%2C%2004858%20Alb%C3%A1nchez%2C%20Almer%C3%ADa!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botones Flotantes Desplegables (WhatsApp y Facebook) -->
+    <div class="social-float-container">
+        <div class="social-float-menu">
+            <a href="https://wa.me/34600000000" class="float-item whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com/tu-pagina-de-facebook" class="float-item facebook" target="_blank" aria-label="Visítanos en Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+        <button class="whatsapp-float" aria-label="Abrir opciones de contacto y redes">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+    </div>
 
     <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2026 Carburantes Filabres. Todos los derechos reservados.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Carburantes Filabres. Todos los derechos reservados.</p>
+            <p>Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería</p>
+        </div>
     </footer>
 
     <!-- Script de JS -->
