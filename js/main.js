@@ -75,23 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- 5. FUNCIONALIDAD DE LA GALERÍA MODAL DE PRODUCTOS ---
 
 // Mapeo de categorías con las fotos reales de tus estanterías
+// --- 5. FUNCIONALIDAD DE LA GALERÍA MODAL DE PRODUCTOS ---
+
 const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
         images: [
-            'assets/img/imagen1.jpg', // Tortitas, bollería y galletas
-            'assets/img/imagen4.jpeg', // Limpieza del hogar y detergentes
-            'assets/img/imagen6.jpg', // Pastas, caldos y conservas
-            'assets/img/imagen8.jpg', // Latas, atún y conservas de pescado
-            'assets/img/imagen9.jpg'  // Café, cereales e infusiones
+            'assets/img/imagen1.jpeg', 
+            'assets/img/imagen4.jpeg', // Cambia .jpeg por .jpg si esa es su extensión real
+            'assets/img/imagen6.jpeg', 
+            'assets/img/imagen8.jpeg', 
+            'assets/img/imagen9.jpeg'  
         ]
     },
     'modal-bebidas': {
         title: 'Hielo, Vinos y Bebidas Frías',
         images: [
-            'assets/img/imagen3.jpg', // Leche, zumos y batidos
-            'assets/img/imagen5.jpg', // Selección de vinos y licores
-            'assets/img/imagen7.jpg'  // Cervezas, refrescos y bebidas frías
+            'assets/img/imagen3.jpeg', 
+            'assets/img/imagen5.jpeg', 
+            'assets/img/imagen7.jpeg'  
         ]
     }
 };
