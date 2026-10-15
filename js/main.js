@@ -172,4 +172,36 @@ function initFloatingMenu() {
             container.classList.remove('active');
         });
     }
+
+}
+// --- 8. CAMBIO DINÁMICO DE IDIOMA (ESPAÑOL / INGLÉS) ---
+let currentLang = 'es';
+
+function switchLanguage(lang) {
+    currentLang = lang;
+
+    // Actualizar clase activa en los botones
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang));
+    });
+
+    // Cambiar todos los elementos con atributos data-es / data-en
+    document.querySelectorAll('[data-es]').forEach(elem => {
+        const text = elem.getAttribute(`data-${lang}`);
+        if (text) {
+            elem.innerHTML = text;
+        }
+    });
+
+    // Actualizar títulos de las galerías en el idioma activo
+    if (productGalleries['modal-super']) {
+        productGalleries['modal-super'].title = lang === 'es' 
+            ? 'Supermercado, Despensa y Limpieza' 
+            : 'Supermarket, Grocery & Household Cleaning';
+    }
+    if (productGalleries['modal-bebidas']) {
+        productGalleries['modal-bebidas'].title = lang === 'es' 
+            ? 'Hielo, Vinos y Bebidas Frías' 
+            : 'Ice, Wine & Cold Beverages';
+    }
 }

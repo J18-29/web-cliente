@@ -77,7 +77,31 @@ html {
     justify-content: space-between;
     height: 80px;
 }
+/* Selector de Idioma (ES / EN) */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
 
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    color: var(--primary);
+    background-color: rgba(220, 38, 38, 0.1);
+}
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
