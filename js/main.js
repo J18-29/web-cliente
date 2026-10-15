@@ -180,12 +180,12 @@ let currentLang = 'es';
 function switchLanguage(lang) {
     currentLang = lang;
 
-    // Actualizar clase activa en los botones
+    // 1. Actualizar clase activa en los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang));
     });
 
-    // Cambiar todos los elementos con atributos data-es / data-en
+    // 2. Cambiar todos los elementos con atributos data-es / data-en
     document.querySelectorAll('[data-es]').forEach(elem => {
         const text = elem.getAttribute(`data-${lang}`);
         if (text) {
@@ -193,15 +193,17 @@ function switchLanguage(lang) {
         }
     });
 
-    // Actualizar títulos de las galerías en el idioma activo
-    if (productGalleries['modal-super']) {
-        productGalleries['modal-super'].title = lang === 'es' 
-            ? 'Supermercado, Despensa y Limpieza' 
-            : 'Supermarket, Grocery & Household Cleaning';
-    }
-    if (productGalleries['modal-bebidas']) {
-        productGalleries['modal-bebidas'].title = lang === 'es' 
-            ? 'Hielo, Vinos y Bebidas Frías' 
-            : 'Ice, Wine & Cold Beverages';
+    // 3. Actualizar títulos dinámicos de las galerías en el idioma activo
+    if (typeof productGalleries !== 'undefined') {
+        if (productGalleries['modal-super']) {
+            productGalleries['modal-super'].title = lang === 'es' 
+                ? 'Supermercado, Despensa y Limpieza' 
+                : 'Supermarket, Grocery & Household Cleaning';
+        }
+        if (productGalleries['modal-bebidas']) {
+            productGalleries['modal-bebidas'].title = lang === 'es' 
+                ? 'Hielo, Vinos y Bebidas Frías' 
+                : 'Ice, Wine & Cold Beverages';
+        }
     }
 }
