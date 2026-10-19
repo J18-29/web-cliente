@@ -82,14 +82,14 @@ const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
         images: ['assets/img/imagen1.jpeg', 'assets/img/imagen4.jpeg', 'assets/img/imagen6.jpeg', 'assets/img/imagen8.jpeg', 'assets/img/imagen9.jpeg'],
-        descEs: '',
-        descEn: ''
+        descEs: 'En nuestro supermercado SPAR City encontrarás todo lo necesario para tu día a día: productos frescos, alimentación, congelados, artículos de despensa, droguería y productos de limpieza. ¡Haz tu compra rápida y cómoda sin desviarte de tu ruta!',
+        descEn: 'In our SPAR City supermarket you will find everything you need for your daily essentials: fresh products, groceries, frozen food, pantry items, and household cleaning supplies. Do your shopping quickly and conveniently without taking a detour!'
     },
     'modal-bebidas': {
         title: 'Hielo, Vinos y Bebidas Frías',
         images: ['assets/img/imagen3.jpeg', 'assets/img/imagen5.jpeg', 'assets/img/imagen7.jpeg'],
-        descEs: '',
-        descEn: ''
+        descEs: 'Disponemos de una amplia selección de bebidas frías, refrescos, aguas, cervezas, vinos y licores para cualquier ocasión, además de sacos de hielo siempre listos para llevar',
+        descEn: 'We offer a wide selection of cold drinks, soft drinks, water, beers, wines, and spirits for any occasion, as well as bags of ice always ready to go'
     },
     'modal-cafe': {
         title: 'Rincón de Cafetería y Pausa',
@@ -97,18 +97,18 @@ const productGalleries = {
         descEs: 'En esta cafetería puedes desayunar, comer y cenar cuando pases por aquí. Además, cuando compres el pan puedes hacerte un bocadillo a tu gusto ya que disponemos de una gran variedad de embutidos.',
         descEn: 'In this cafeteria you can have breakfast, lunch, and dinner whenever you pass by. Also, when you buy fresh bread, you can make your own custom sandwich as we offer a wide variety of cold cuts and cured meats.'
     },
-    'modal-surtidor': {
+   'modal-surtidor': {
         title: 'Estación de Servicio y Surtidores',
         images: ['assets/img/imagen11.jpg'],
-        descEs: '',
-        descEn: ''
+        descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina con precios competitivos marcados en pantalla.',
+        descEn: 'High-precision multi-product fuel pumps for fast and safe diesel and petrol refuelling with competitive display prices.'
     },
     'modal-lavadero': {
         title: 'Área de Lavado de Vehículos',
         images: ['assets/img/imagen12.jpg', 'assets/img/imagen13.jpg'],
-        descEs: '',
-        descEn: ''
-    }
+        descEs: 'Zona de lavado a presión equipada con manguera de brazo giratorio para limpiar tu vehículo cómodamente, además de módulo de aspirado para dejar el interior impecable.',
+        descEn: 'High-pressure car wash bay equipped with a rotating arm hose for effortless vehicle cleaning, plus a dedicated vacuum station to keep your interior spotless.'
+    },
 };
 
 function openModal(categoryKey) {
