@@ -777,4 +777,21 @@ html {
     .hero p {
         font-size: 0.98rem;
     }
+
+    /* Estilo para la descripción dentro de los modales de galería */
+.modal-description-text {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background-color: #f1f5f9;
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    font-size: 0.98rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.modal-description-text i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
 }

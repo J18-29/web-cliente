@@ -79,11 +79,13 @@
 
                 <!-- Tarjeta Café -->
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
-                    <h3 data-es="Rincón de Café y Pausa" data-en="Coffee & Snack Corner">Rincón de Café y Pausa</h3>
-                    <p data-es="Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta." data-en="Enjoy freshly brewed coffee or cold drinks to take a quick break before continuing your journey.">Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
-                </div>
-
+    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+    <h3 data-es="Rincón de Café y Pausa" data-en="Coffee & Snack Corner">Rincón de Café y Pausa</h3>
+    <p data-es="Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta." data-en="Enjoy freshly brewed coffee or cold drinks to take a quick break before continuing your journey.">Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
+    <button class="btn-gallery" onclick="openModal('modal-cafe')" data-es='<i class="fa-solid fa-images"></i> Ver galería' data-en='<i class="fa-solid fa-images"></i> View gallery'>
+        <i class="fa-solid fa-images"></i> Ver galería
+    </button>
+</div>
                 <!-- Tarjeta Bebidas e Hielo -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
@@ -97,12 +99,15 @@
         </div>
     </section>
 
-    <!-- Modal / Galería de Productos -->
+   <!-- Modal / Galería de Productos e Instalaciones -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h3 id="modal-title">Galería de Productos</h3>
             <div class="modal-gallery-grid" id="modal-gallery-container"></div>
+            
+            <!-- Texto descriptivo dinámico para la cafetería u otros servicios -->
+            <div id="modal-description" class="modal-description-text"></div>
         </div>
     </div>
 
@@ -114,20 +119,31 @@
                 <p data-es="Servicios diseñados para cuidar de tu vehículo en ruta." data-en="Services designed to take care of your vehicle on the road.">Servicios diseñados para cuidar de tu vehículo en ruta.</p>
             </div>
             <div class="cards-grid">
+                <!-- Tarjeta 1: Combustible -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
                     <h3 data-es="Combustible de Calidad" data-en="Quality Fuel">Combustible de Calidad</h3>
                     <p data-es="Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor." data-en="Fast and safe refuelling with high-quality fuel for optimal engine performance.">Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-surtidor')" data-es='<i class="fa-solid fa-images"></i> Ver surtidores' data-en='<i class="fa-solid fa-images"></i> View fuel pumps'>
+                        <i class="fa-solid fa-images"></i> Ver surtidores
+                    </button>
                 </div>
+
+                <!-- Tarjeta 2: Presión de Neumáticos -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-car-burst"></i></div>
                     <h3 data-es="Presión de Neumáticos" data-en="Tyre Pressure">Presión de Neumáticos</h3>
                     <p data-es="Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda." data-en="Dedicated area to check and adjust your tyre pressure conveniently.">Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda.</p>
                 </div>
+
+                <!-- Tarjeta 3: Área de Lavado -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
                     <h3 data-es="Área de Lavado" data-en="Car Wash Area">Área de Lavado</h3>
                     <p data-es="Mantén tu vehículo impecable con nuestras opciones de lavado a presión." data-en="Keep your vehicle spotless with our high-pressure car wash facilities.">Mantén tu vehículo impecable con nuestras opciones de lavado a presión.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-lavadero')" data-es='<i class="fa-solid fa-images"></i> Ver lavadero' data-en='<i class="fa-solid fa-images"></i> View car wash'>
+                        <i class="fa-solid fa-images"></i> Ver lavadero
+                    </button>
                 </div>
             </div>
         </div>

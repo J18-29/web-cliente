@@ -77,15 +77,37 @@ function initDynamicYear() {
     }
 }
 
-// 5. Datos y control de la galería modal de productos
+// Datos y control de las galerías modales de fotos
 const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
-        images: ['assets/img/imagen1.jpeg', 'assets/img/imagen4.jpeg', 'assets/img/imagen6.jpeg', 'assets/img/imagen8.jpeg', 'assets/img/imagen9.jpeg']
+        images: ['assets/img/imagen1.jpeg', 'assets/img/imagen4.jpeg', 'assets/img/imagen6.jpeg', 'assets/img/imagen8.jpeg', 'assets/img/imagen9.jpeg'],
+        descEs: '',
+        descEn: ''
     },
     'modal-bebidas': {
         title: 'Hielo, Vinos y Bebidas Frías',
-        images: ['assets/img/imagen3.jpeg', 'assets/img/imagen5.jpeg', 'assets/img/imagen7.jpeg']
+        images: ['assets/img/imagen3.jpeg', 'assets/img/imagen5.jpeg', 'assets/img/imagen7.jpeg'],
+        descEs: '',
+        descEn: ''
+    },
+    'modal-cafe': {
+        title: 'Rincón de Cafetería y Pausa',
+        images: ['assets/img/imagen14.jpg'],
+        descEs: 'En esta cafetería puedes desayunar, comer y cenar cuando pases por aquí. Además, cuando compres el pan puedes hacerte un bocadillo a tu gusto ya que disponemos de una gran variedad de embutidos.',
+        descEn: 'In this cafeteria you can have breakfast, lunch, and dinner whenever you pass by. Also, when you buy fresh bread, you can make your own custom sandwich as we offer a wide variety of cold cuts and cured meats.'
+    },
+    'modal-surtidor': {
+        title: 'Estación de Servicio y Surtidores',
+        images: ['assets/img/imagen11.jpg'],
+        descEs: '',
+        descEn: ''
+    },
+    'modal-lavadero': {
+        title: 'Área de Lavado de Vehículos',
+        images: ['assets/img/imagen12.jpg', 'assets/img/imagen13.jpg'],
+        descEs: '',
+        descEn: ''
     }
 };
 
@@ -93,27 +115,56 @@ function openModal(categoryKey) {
     const modal = document.getElementById('productModal');
     const modalTitle = document.getElementById('modal-title');
     const galleryContainer = document.getElementById('modal-gallery-container');
+    const modalDescription = document.getElementById('modal-description');
     
     const data = productGalleries[categoryKey];
     if (!data || !modal) return;
 
-    if (modalTitle) modalTitle.textContent = data.title;
+    // Cambiar título según el idioma
+    if (modalTitle) {
+        if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+            const englishTitles = {
+                'modal-super': 'Supermarket, Grocery & Household Cleaning',
+                'modal-bebidas': 'Ice, Wine & Cold Beverages',
+                'modal-cafe': 'Coffee & Snack Corner',
+                'modal-surtidor': 'Petrol Station & Fuel Pumps',
+                'modal-lavadero': 'Car Wash Facilities'
+            };
+            modalTitle.textContent = englishTitles[categoryKey] || data.title;
+        } else {
+            modalTitle.textContent = data.title;
+        }
+    }
 
+    // Inyectar imágenes en la galería
     if (galleryContainer) {
         galleryContainer.innerHTML = '';
         data.images.forEach(imgPath => {
             const img = document.createElement('img');
             img.src = imgPath;
-            img.alt = 'Producto en Carburantes Filabres';
+            img.alt = 'Fotografía Carburantes Filabres';
             img.loading = 'lazy';
             galleryContainer.appendChild(img);
         });
     }
 
+    // Inyectar descripción si la tiene (y cambiarla según el idioma)
+    if (modalDescription) {
+        const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
+        const textToDisplay = (lang === 'en') ? data.descEn : data.descEs;
+        
+        if (textToDisplay) {
+            modalDescription.innerHTML = `<i class="fa-solid fa-circle-info"></i> ${textToDisplay}`;
+            modalDescription.style.display = 'block';
+        } else {
+            modalDescription.innerHTML = '';
+            modalDescription.style.display = 'none';
+        }
+    }
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
-
 function closeModal() {
     const modal = document.getElementById('productModal');
     if (modal) {
@@ -172,20 +223,20 @@ function initFloatingMenu() {
             container.classList.remove('active');
         });
     }
-
 }
-// --- 8. CAMBIO DINÁMICO DE IDIOMA (ESPAÑOL / INGLÉS) ---
+
+// 8. Cambio dinámico de idioma (ESPAÑOL / INGLÉS)
 let currentLang = 'es';
 
 function switchLanguage(lang) {
     currentLang = lang;
 
-    // 1. Actualizar clase activa en los botones de idioma
+    // Actualizar clase activa en los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang));
     });
 
-    // 2. Cambiar todos los elementos con atributos data-es / data-en
+    // Cambiar elementos con atributos data-es / data-en
     document.querySelectorAll('[data-es]').forEach(elem => {
         const text = elem.getAttribute(`data-${lang}`);
         if (text) {
@@ -193,7 +244,7 @@ function switchLanguage(lang) {
         }
     });
 
-    // 3. Actualizar títulos dinámicos de las galerías en el idioma activo
+    // Actualizar títulos dinámicos de las galerías
     if (typeof productGalleries !== 'undefined') {
         if (productGalleries['modal-super']) {
             productGalleries['modal-super'].title = lang === 'es' 
@@ -204,6 +255,21 @@ function switchLanguage(lang) {
             productGalleries['modal-bebidas'].title = lang === 'es' 
                 ? 'Hielo, Vinos y Bebidas Frías' 
                 : 'Ice, Wine & Cold Beverages';
+        }
+        if (productGalleries['modal-cafe']) {
+            productGalleries['modal-cafe'].title = lang === 'es' 
+                ? 'Rincón de Cafetería y Pausa' 
+                : 'Coffee & Snack Corner';
+        }
+        if (productGalleries['modal-surtidor']) {
+            productGalleries['modal-surtidor'].title = lang === 'es' 
+                ? 'Estación de Servicio y Surtidores' 
+                : 'Petrol Station & Fuel Pumps';
+        }
+        if (productGalleries['modal-lavadero']) {
+            productGalleries['modal-lavadero'].title = lang === 'es' 
+                ? 'Área de Lavado de Vehículos' 
+                : 'Car Wash Facilities';
         }
     }
 }
