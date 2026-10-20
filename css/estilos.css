@@ -643,15 +643,18 @@ html {
 /* Barra inferior */
 .footer-bottom {
     background-color: #020617;
+    width: 100%;
     padding: 1.25rem 0;
     text-align: center;
-    font-size: 0.88rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-bottom p {
     margin: 0;
     color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
 }
 
 /* Adaptación para móviles */
