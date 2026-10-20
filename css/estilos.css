@@ -2,7 +2,7 @@
    VARIABLES Y CONFIGURACIÓN GENERAL
    ========================================================================== */
 :root {
-    --primary: #dc2626; /* Rojo corporativo */
+    --primary: #dc2626; 
     --primary-dark: #b91c1c;
     --dark: #1e293b;
     --light: #f8fafc;
@@ -126,7 +126,7 @@ html {
 /* CARBURANTES: Azul, alargado, en mayúsculas */
 .brand-carburantes {
     font-family: 'Oswald', sans-serif;
-    color: #0b579d; /* Azul de marca corporativo */
+    color: #0b579d; 
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -136,7 +136,7 @@ html {
 /* Filabres: Rojo corporativo y redondeado */
 .brand-filabres {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: #dc2626; /* Rojo corporativo */
+    color: #dc2626; 
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: -0.3px;
@@ -714,7 +714,7 @@ html {
 
     /* Logo adaptado para pantallas pequeñas */
     .logo-img {
-        height: 42px; /* Un poco más compacto en móvil */
+        height: 42px; 
     }
 
     .brand-carburantes {
