@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductGalleries();
     initImageZoom();
     initFloatingMenu();
+    renderNotices(); // <--- Cargar los anuncios
 });
 
 // 1. Menú móvil (Hamburguesa)
@@ -76,7 +77,6 @@ function initDynamicYear() {
         yearSpan.textContent = new Date().getFullYear();
     }
 }
-
 // Datos y control de las galerías modales de fotos
 const productGalleries = {
     'modal-super': {
@@ -110,6 +110,61 @@ const productGalleries = {
         descEn: 'High-pressure car wash bay equipped with a rotating arm hose for effortless vehicle cleaning, plus a dedicated vacuum station to keep your interior spotless.'
     },
 };
+
+//5.Anuncios de noticias
+// Lista de anuncios y avisos (fácil de editar o añadir nuevos)
+const noticesData = [
+    {
+        date: '21/10/2026',
+        badgeEs: 'Oferta Especial',
+        badgeEn: 'Special Offer',
+        badgeClass: 'badge-promo',
+        isHighlight: true,
+        titleEs: '¡Promoción en el Rincón de Cafetería!',
+        titleEn: 'Coffee Corner Promotion!',
+        descEs: 'Llévate tu café con tostada o bocadillo recién preparado con embutidos de calidad a precio especial todas las mañanas.',
+        descEn: 'Enjoy your fresh coffee with toast or a custom-made sandwich with quality cold cuts at a special price every morning.'
+    },
+    {
+        date: '15/10/2026',
+        badgeEs: 'Aviso General',
+        badgeEn: 'General Notice',
+        badgeClass: 'badge-info',
+        isHighlight: false,
+        titleEs: 'Surtidores y Venta de Bombonas Disponibles',
+        titleEn: 'Pumps and Gas Cylinder Sales Available',
+        descEs: 'Recordamos a nuestros clientes que disponemos de servicio de repostaje rápido y venta de bombonas de butano/propano en nuestro horario habitual.',
+        descEn: 'We remind our customers that we offer fast refuelling and butane/propane gas cylinder sales during our regular opening hours.'
+    }
+];
+
+// Función para renderizar los anuncios dinámicamente según el idioma
+function renderNotices() {
+    const container = document.getElementById('notices-container');
+    if (!container) return;
+
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
+    container.innerHTML = '';
+
+    noticesData.forEach(notice => {
+        const badgeText = (lang === 'en') ? notice.badgeEn : notice.badgeEs;
+        const titleText = (lang === 'en') ? notice.titleEn : notice.titleEs;
+        const descText = (lang === 'en') ? notice.descEn : notice.descEs;
+        const highlightClass = notice.isHighlight ? 'notice-highlight' : '';
+
+        const card = document.createElement('article');
+        card.className = `notice-card ${highlightClass}`;
+        card.innerHTML = `
+            <div class="notice-header">
+                <span class="notice-badge ${notice.badgeClass}" data-es="${notice.badgeEs}" data-en="${notice.badgeEn}">${badgeText}</span>
+                <time class="notice-date">${notice.date}</time>
+            </div>
+            <h3 data-es="${notice.titleEs}" data-en="${notice.titleEn}">${titleText}</h3>
+            <p data-es="${notice.descEs}" data-en="${notice.descEn}">${descText}</p>
+        `;
+        container.appendChild(card);
+    });
+}
 
 function openModal(categoryKey) {
     const modal = document.getElementById('productModal');
@@ -271,5 +326,10 @@ function switchLanguage(lang) {
                 ? 'Área de Lavado de Vehículos' 
                 : 'Car Wash Facilities';
         }
+    }
+
+    // Actualizar y repintar el tablón de anuncios en el idioma seleccionado
+    if (typeof renderNotices === 'function') {
+        renderNotices();
     }
 }
