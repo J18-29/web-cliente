@@ -611,7 +611,7 @@ html {
 }
 
 .highlight-text {
-    color: #22c55e !important; /* Verde destacado */
+    color: #22c55e ;
     font-weight: 600;
 }
 
