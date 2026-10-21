@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductGalleries();
     initImageZoom();
     initFloatingMenu();
-    renderNotices(); // <--- Cargar los anuncios
+    renderNotices();
+    loadNoticesFromSheets();
 });
 
 // 1. Menú móvil (Hamburguesa)
@@ -328,8 +329,5 @@ function switchLanguage(lang) {
         }
     }
 
-    // Actualizar y repintar el tablón de anuncios en el idioma seleccionado
-    if (typeof renderNotices === 'function') {
-        renderNotices();
-    }
+    
 }
