@@ -82,7 +82,7 @@ const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
         images: ['assets/img/imagen1.jpeg', 'assets/img/imagen4.jpeg', 'assets/img/imagen6.jpeg', 'assets/img/imagen8.jpeg', 'assets/img/imagen9.jpeg'],
-        descEs: 'En nuestro supermercado SPAR City encontrarás todo lo necesario para tu día a día: productos frescos, alimentación, congelados, artículos de despensa, droguería y productos de limpieza. ¡Haz tu compra rápida y cómoda sin desviarte de tu ruta!',
+        descEs: 'En nuestro supermercado SPAR City encontrarás todo lo necesario para tu día a día: productos frescos, alimentación, congelados, artículos de despensa y productos de limpieza. ¡Haz tu compra rápida y cómoda sin desviarte de tu ruta!',
         descEn: 'In our SPAR City supermarket you will find everything you need for your daily essentials: fresh products, groceries, frozen food, pantry items, and household cleaning supplies. Do your shopping quickly and conveniently without taking a detour!'
     },
     'modal-bebidas': {
