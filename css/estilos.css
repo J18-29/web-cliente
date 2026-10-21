@@ -529,10 +529,17 @@ html {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
-    padding-bottom: 3rem;
-    padding-right: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* En pantallas móviles se adapta a una sola columna */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .footer-col h4 {
