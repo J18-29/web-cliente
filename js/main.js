@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductGalleries();
     initImageZoom();
     initFloatingMenu();
-    renderNotices();
-    loadNoticesFromSheets();
 });
 
 // 1. Menú móvil (Hamburguesa)
@@ -78,7 +76,8 @@ function initDynamicYear() {
         yearSpan.textContent = new Date().getFullYear();
     }
 }
-// Datos y control de las galerías modales de fotos
+
+// Datos y control de las galerías modales de fotos (Incluyendo Aire/Agua y Butano)
 const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
@@ -89,8 +88,8 @@ const productGalleries = {
     'modal-bebidas': {
         title: 'Hielo, Vinos y Bebidas Frías',
         images: ['assets/img/imagen3.jpeg', 'assets/img/imagen5.jpeg', 'assets/img/imagen7.jpeg'],
-        descEs: 'Disponemos de una amplia selección de bebidas frías, refrescos, aguas, cervezas, vinos y licores para cualquier ocasión, además de sacos de hielo siempre listos para llevar',
-        descEn: 'We offer a wide selection of cold drinks, soft drinks, water, beers, wines, and spirits for any occasion, as well as bags of ice always ready to go'
+        descEs: 'Disponemos de una amplia selección de bebidas frías, refrescos, aguas, cervezas, vinos y licores para cualquier ocasión, además de sacos de hielo siempre listos para llevar.',
+        descEn: 'We offer a wide selection of cold drinks, soft drinks, water, beers, wines, and spirits for any occasion, as well as bags of ice always ready to go.'
     },
     'modal-cafe': {
         title: 'Rincón de Cafetería y Pausa',
@@ -98,10 +97,10 @@ const productGalleries = {
         descEs: 'En esta cafetería puedes desayunar, comer y cenar cuando pases por aquí. Además, cuando compres el pan puedes hacerte un bocadillo a tu gusto ya que disponemos de una gran variedad de embutidos.',
         descEn: 'In this cafeteria you can have breakfast, lunch, and dinner whenever you pass by. Also, when you buy fresh bread, you can make your own custom sandwich as we offer a wide variety of cold cuts and cured meats.'
     },
-   'modal-surtidor': {
+    'modal-surtidor': {
         title: 'Estación de Servicio y Surtidores',
         images: ['assets/img/imagen11.jpg'],
-        descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina con precios competitivos marcados en pantalla.',
+        descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina .',
         descEn: 'High-precision multi-product fuel pumps for fast and safe diesel and petrol refuelling with competitive display prices.'
     },
     'modal-lavadero': {
@@ -110,62 +109,19 @@ const productGalleries = {
         descEs: 'Zona de lavado a presión equipada con manguera de brazo giratorio para limpiar tu vehículo cómodamente, además de módulo de aspirado para dejar el interior impecable.',
         descEn: 'High-pressure car wash bay equipped with a rotating arm hose for effortless vehicle cleaning, plus a dedicated vacuum station to keep your interior spotless.'
     },
-};
-
-//5.Anuncios de noticias
-// Lista de anuncios y avisos (fácil de editar o añadir nuevos)
-const noticesData = [
-    {
-        date: '21/10/2026',
-        badgeEs: 'Oferta Especial',
-        badgeEn: 'Special Offer',
-        badgeClass: 'badge-promo',
-        isHighlight: true,
-        titleEs: '¡Promoción en el Rincón de Cafetería!',
-        titleEn: 'Coffee Corner Promotion!',
-        descEs: 'Llévate tu café con tostada o bocadillo recién preparado con embutidos de calidad a precio especial todas las mañanas.',
-        descEn: 'Enjoy your fresh coffee with toast or a custom-made sandwich with quality cold cuts at a special price every morning.'
+    'modal-aire': {
+        title: 'Zona de Aire y Agua',
+        images: ['assets/img/imagen15.jpg'],
+        descEs: 'Punto habilitado de aire y agua para la revisión periódica de la presión de tus neumáticos y mantenimiento básico en ruta.',
+        descEn: 'Dedicated air and water station for regular tyre pressure checks and basic maintenance on the road.'
     },
-    {
-        date: '15/10/2026',
-        badgeEs: 'Aviso General',
-        badgeEn: 'General Notice',
-        badgeClass: 'badge-info',
-        isHighlight: false,
-        titleEs: 'Surtidores y Venta de Bombonas Disponibles',
-        titleEn: 'Pumps and Gas Cylinder Sales Available',
-        descEs: 'Recordamos a nuestros clientes que disponemos de servicio de repostaje rápido y venta de bombonas de butano/propano en nuestro horario habitual.',
-        descEn: 'We remind our customers that we offer fast refuelling and butane/propane gas cylinder sales during our regular opening hours.'
+    'modal-butano': {
+        title: 'Venta de Bombonas de Butano',
+        images: ['assets/img/imagen16.jpg'],
+        descEs: 'Disponemos de servicio de venta y almacenamiento seguro de bombonas de gas butano para hogares y profesionales.',
+        descEn: 'We offer safe storage and sales service for butane gas cylinders for homes and professionals.'
     }
-];
-
-// Función para renderizar los anuncios dinámicamente según el idioma
-function renderNotices() {
-    const container = document.getElementById('notices-container');
-    if (!container) return;
-
-    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
-    container.innerHTML = '';
-
-    noticesData.forEach(notice => {
-        const badgeText = (lang === 'en') ? notice.badgeEn : notice.badgeEs;
-        const titleText = (lang === 'en') ? notice.titleEn : notice.titleEs;
-        const descText = (lang === 'en') ? notice.descEn : notice.descEs;
-        const highlightClass = notice.isHighlight ? 'notice-highlight' : '';
-
-        const card = document.createElement('article');
-        card.className = `notice-card ${highlightClass}`;
-        card.innerHTML = `
-            <div class="notice-header">
-                <span class="notice-badge ${notice.badgeClass}" data-es="${notice.badgeEs}" data-en="${notice.badgeEn}">${badgeText}</span>
-                <time class="notice-date">${notice.date}</time>
-            </div>
-            <h3 data-es="${notice.titleEs}" data-en="${notice.titleEn}">${titleText}</h3>
-            <p data-es="${notice.descEs}" data-en="${notice.descEn}">${descText}</p>
-        `;
-        container.appendChild(card);
-    });
-}
+};
 
 function openModal(categoryKey) {
     const modal = document.getElementById('productModal');
@@ -184,7 +140,9 @@ function openModal(categoryKey) {
                 'modal-bebidas': 'Ice, Wine & Cold Beverages',
                 'modal-cafe': 'Coffee & Snack Corner',
                 'modal-surtidor': 'Petrol Station & Fuel Pumps',
-                'modal-lavadero': 'Car Wash Facilities'
+                'modal-lavadero': 'Car Wash Facilities',
+                'modal-aire': 'Air & Water Station',
+                'modal-butano': 'Butane Gas Cylinder Sales'
             };
             modalTitle.textContent = englishTitles[categoryKey] || data.title;
         } else {
@@ -221,6 +179,7 @@ function openModal(categoryKey) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+
 function closeModal() {
     const modal = document.getElementById('productModal');
     if (modal) {
@@ -236,7 +195,7 @@ function initProductGalleries() {
     });
 }
 
-// 6. Visor de zoom individual para las fotos de estanterías
+// 6. Visor de zoom individual para las fotos
 function initImageZoom() {
     let zoomModal = document.getElementById('imageZoomModal');
     if (!zoomModal) {
@@ -299,35 +258,4 @@ function switchLanguage(lang) {
             elem.innerHTML = text;
         }
     });
-
-    // Actualizar títulos dinámicos de las galerías
-    if (typeof productGalleries !== 'undefined') {
-        if (productGalleries['modal-super']) {
-            productGalleries['modal-super'].title = lang === 'es' 
-                ? 'Supermercado, Despensa y Limpieza' 
-                : 'Supermarket, Grocery & Household Cleaning';
-        }
-        if (productGalleries['modal-bebidas']) {
-            productGalleries['modal-bebidas'].title = lang === 'es' 
-                ? 'Hielo, Vinos y Bebidas Frías' 
-                : 'Ice, Wine & Cold Beverages';
-        }
-        if (productGalleries['modal-cafe']) {
-            productGalleries['modal-cafe'].title = lang === 'es' 
-                ? 'Rincón de Cafetería y Pausa' 
-                : 'Coffee & Snack Corner';
-        }
-        if (productGalleries['modal-surtidor']) {
-            productGalleries['modal-surtidor'].title = lang === 'es' 
-                ? 'Estación de Servicio y Surtidores' 
-                : 'Petrol Station & Fuel Pumps';
-        }
-        if (productGalleries['modal-lavadero']) {
-            productGalleries['modal-lavadero'].title = lang === 'es' 
-                ? 'Área de Lavado de Vehículos' 
-                : 'Car Wash Facilities';
-        }
-    }
-
-    
 }
