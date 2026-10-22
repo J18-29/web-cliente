@@ -548,6 +548,9 @@ html {
     margin-bottom: 1.25rem;
     position: relative;
 }
+footer#mapa {
+    scroll-margin-top: 80px;
+}
 
 .footer-col h4::after {
     content: '';
