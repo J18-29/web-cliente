@@ -112,8 +112,8 @@ const productGalleries = {
     'modal-aire': {
         title: 'Zona de Aire y Agua',
         images: ['assets/img/imagen15.jpg'],
-        descEs: 'Punto habilitado de aire y agua para la revisión periódica de la presión de tus neumáticos y mantenimiento básico en ruta.',
-        descEn: 'Dedicated air and water station for regular tyre pressure checks and basic maintenance on the road.'
+        descEs: 'Punto equipado con aire y agua. Al fondo se observa una manguera de aire para la revisión periódica de la presión de tus neumáticos y el mantenimiento básico de tu vehículo.',
+        descEn: 'Fully equipped air and water station, featuring an air hose in the back for routine tire pressure checks and basic vehicle maintenance.'
     },
     'modal-butano': {
         title: 'Venta de Bombonas de Butano',
