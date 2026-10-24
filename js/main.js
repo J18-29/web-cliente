@@ -93,13 +93,13 @@ const productGalleries = {
     },
     'modal-cafe': {
         title: 'Rincón de Cafetería y Pausa',
-        images: ['assets/img/imagen14.jpg'],
+        images: ['assets/img/imagen14.jpeg'],
         descEs: 'En esta cafetería puedes desayunar, comer y cenar cuando pases por aquí. Además, cuando compres el pan puedes hacerte un bocadillo a tu gusto ya que disponemos de una gran variedad de embutidos.',
         descEn: 'In this cafeteria you can have breakfast, lunch, and dinner whenever you pass by. Also, when you buy fresh bread, you can make your own custom sandwich as we offer a wide variety of cold cuts and cured meats.'
     },
     'modal-surtidor': {
         title: 'Estación de Servicio y Surtidores',
-        images: ['assets/img/imagen11.jpg'],
+        images: ['assets/img/imagen11.jpeg'],
         descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina .',
         descEn: 'High-precision multi-product fuel pumps for fast and safe diesel and petrol refuelling with competitive display prices.'
     },
