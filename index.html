@@ -18,32 +18,40 @@
 </head>
 <body>
 
-    <!-- Cabecera / Navegación -->
-<header class="header">
-    <div class="container nav-container">
-        <!-- Logo y Texto -->
-        <a href="#inicio" class="logo">
-            <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img">
-            <div class="logo-text">
-                <span class="brand-carburantes">CARBURANTES</span>
-                <span class="brand-filabres">Filabres</span>
+   <!-- Cabecera / Navegación -->
+    <header class="header">
+        <div class="container nav-container">
+            <!-- Logo y Texto juntos sin separación -->
+            <a href="#inicio" class="logo">
+                <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand-carburantes">CARBURANTES</span>
+                    <span class="brand-filabres">Filabres</span>
+                </div>
+            </a>
+
+            <!-- Menú de Navegación -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+                    <li><a href="#tienda" data-es="Tienda & Café" data-en="Shop & Coffee">Tienda & Café</a></li>
+                    <li><a href="#gasolinera" data-es="Gasolinera" data-en="Petrol Station">Gasolinera</a></li>
+                    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Acciones de Cabecera -->
+            <div class="header-actions">
+                <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="switchLanguage('es')">ES 🇪🇸</button>
+                    <span>|</span>
+                    <button class="lang-btn" onclick="switchLanguage('en')">EN 🇬🇧</button>
+                </div>
             </div>
-        </a>
-
-        <!-- Menú de Navegación (oculto por defecto en móvil) -->
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
-                <li><a href="#tienda" data-es="Tienda & Café" data-en="Shop & Coffee">Tienda & Café</a></li>
-                <li><a href="#gasolinera" data-es="Gasolinera" data-en="Petrol Station">Gasolinera</a></li>
-                <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <!-- Acciones de Cabecera (Botón Cómo llegar + Hamburguesa + Idiomas) -->
-        <div class="header-actions">
-            <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
-            
+        </div>
+    </header>
             <!-- Botón Hamburguesa metido aquí dentro para que se alinee a la derecha -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 <i class="fa-solid fa-bars"></i>
