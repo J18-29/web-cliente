@@ -108,7 +108,7 @@ html {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.3rem; /* Reducido de 0.85rem a 0.4rem para acercarlos */
+    gap: 0.3rem; 
     text-decoration: none;
 }
 
@@ -159,7 +159,7 @@ html {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 600;
-    font-size: 1.13rem; /* <--- Añade esta línea para hacer las letras más grandes (prueba con 1.1rem o 1.2rem según prefieras) */
+    font-size: 1.11rem; 
     transition: var(--transition);
 }
 .nav-menu a:hover {
