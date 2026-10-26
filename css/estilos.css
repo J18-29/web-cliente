@@ -689,13 +689,12 @@ footer#mapa {
    DISEÑO RESPONSIVO Y AJUSTES MÓVILES (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Contenedor de la cabecera */
     .nav-container {
         padding: 0 1rem;
         gap: 0.5rem;
+        justify-content: space-between;
     }
 
-    /* Logo adaptado para pantallas pequeñas */
     .logo-img {
         height: 42px; 
     }
@@ -708,28 +707,20 @@ footer#mapa {
         font-size: 1.1rem;
     }
 
-    /* Ocultar el botón rojo 'Cómo Llegar' de la cabecera solo en móviles */
-    .nav-container > .btn-primary {
-        display: none;
+    /* Ocultar completamente el botón 'Cómo Llegar' en la barra móvil */
+    .header-actions .btn-primary {
+        display: none !important;
     }
 
-    /* Ajustar selector de idiomas en móvil */
-    .lang-switch {
-        font-size: 0.85rem;
-        gap: 0.25rem;
-    }
-
-    .lang-btn {
-        padding: 0.1rem 0.3rem;
-        font-size: 0.85rem;
-    }
-
-    /* Botón hamburguesa */
+    /* Mostrar el botón hamburguesa */
     .menu-toggle {
-        display: block;
+        display: block !important;
         font-size: 1.4rem;
         padding: 0.4rem;
         color: var(--dark);
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
     /* Menú desplegable móvil */
@@ -755,7 +746,7 @@ footer#mapa {
         text-align: center;
     }
 
-    /* Ajuste de textos en el Hero */
+    /* Ajustes del Hero */
     .hero h1 {
         font-size: 2.1rem;
     }
