@@ -686,44 +686,7 @@ footer#mapa {
 }
 
 /* ==========================================================================
-   DISEÑO RESPONSIVO (MÓVILES)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        transition: var(--transition);
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        text-align: center;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .hero h1 {
-        font-size: 2.4rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
-/* ==========================================================================
-   AJUSTES ESPECÍFICOS PARA MÓVIL
+   DISEÑO RESPONSIVO Y AJUSTES MÓVILES (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
     /* Contenedor de la cabecera */
@@ -745,7 +708,7 @@ footer#mapa {
         font-size: 1.1rem;
     }
 
-    /* Ocultar el botón rojo 'Cómo Llegar' de la cabecera solo en móviles para dar espacio */
+    /* Ocultar el botón rojo 'Cómo Llegar' de la cabecera solo en móviles */
     .nav-container > .btn-primary {
         display: none;
     }
@@ -761,7 +724,7 @@ footer#mapa {
         font-size: 0.85rem;
     }
 
-    /* Botón hamburguesa bien posicionamiento */
+    /* Botón hamburguesa */
     .menu-toggle {
         display: block;
         font-size: 1.4rem;
@@ -776,7 +739,7 @@ footer#mapa {
         left: -100%;
         width: 100%;
         background-color: var(--white);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
         z-index: 999;
     }
@@ -792,7 +755,7 @@ footer#mapa {
         text-align: center;
     }
 
-    /* Ajuste de textos en el Hero para que no ocupen toda la pantalla */
+    /* Ajuste de textos en el Hero */
     .hero h1 {
         font-size: 2.1rem;
     }
@@ -800,8 +763,11 @@ footer#mapa {
     .hero p {
         font-size: 0.98rem;
     }
+}
 
-    /* Estilo para la descripción dentro de los modales de galería */
+/* ==========================================================================
+   ESTILOS GENERALES DE MODALES (Recomendado sacarlo fuera del media query)
+   ========================================================================== */
 .modal-description-text {
     margin-top: 1.5rem;
     padding: 1rem 1.25rem;
@@ -816,5 +782,4 @@ footer#mapa {
 .modal-description-text i {
     color: var(--primary);
     margin-right: 0.5rem;
-}
 }
