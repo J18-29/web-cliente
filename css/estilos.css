@@ -76,41 +76,19 @@ html {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-}
-/* Selector de Idioma (ES / EN) */
-.lang-switch {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    color: var(--text-muted);
+    padding: 0 2rem; /* Asegura un margen interno adecuado */
 }
 
-.lang-btn {
-    background: none;
-    border: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: var(--transition);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-}
-
-.lang-btn.active, .lang-btn:hover {
-    color: var(--primary);
-    background-color: rgba(220, 38, 38, 0.1);
-}
+/* Logo pegado (gap cambiado a 0 o muy pequeño) */
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.2rem; /* Reducido al mínimo para que esté pegado al logo */
     text-decoration: none;
 }
 
 .logo-img {
-    height: 55px;
+    height: 50px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -142,14 +120,12 @@ html {
     letter-spacing: -0.3px;
 }
 
-.logo i {
-    color: var(--primary);
-}
-
 .nav-menu ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu a {
@@ -163,18 +139,52 @@ html {
     color: var(--primary);
 }
 
+/* Contenedor para alinear el botón de "Cómo llegar" y el selector de idiomas juntos a la derecha */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
 .btn-primary {
     background-color: var(--primary);
     color: var(--white);
-    padding: 0.65rem 1.25rem;
+    padding: 0.60rem 1.2rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.95rem;
     transition: var(--transition);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
+}
+
+/* Selector de Idioma (ES / EN) limpio sin duplicados */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.2rem 0.3rem;
+    border-radius: 4px;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    color: var(--primary);
+    background-color: rgba(220, 38, 38, 0.1);
 }
 
 .menu-toggle {
@@ -185,7 +195,6 @@ html {
     cursor: pointer;
     color: var(--dark);
 }
-
 /* ==========================================================================
    SECCIÓN HERO / INICIO CON FOTO REAL
    ========================================================================== */
