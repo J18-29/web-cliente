@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carburantes Filabres | Gasolinera y Supermercado en Albánchez</title>
-    
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- Fuente Google Fonts (Oswald para CARBURANTES) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-    
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-   <!-- Cabecera / Navegación -->
+    <!-- Cabecera / Navegación -->
     <header class="header">
         <div class="container nav-container">
-            <!-- Logo y Texto juntos sin separación -->
             <a href="#inicio" class="logo">
                 <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img">
                 <div class="logo-text">
@@ -30,7 +26,6 @@
                 </div>
             </a>
 
-            <!-- Menú de Navegación -->
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
@@ -40,10 +35,11 @@
                 </ul>
             </nav>
 
-            <!-- Acciones de Cabecera -->
             <div class="header-actions">
+                <!-- Cómo Llegar lleva al Mapa (#mapa) -->
                 <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
 
+                <!-- Selector de Idioma -->
                 <div class="lang-switch">
                     <button class="lang-btn active" onclick="switchLanguage('es')">ES 🇪🇸</button>
                     <span>|</span>
@@ -52,17 +48,6 @@
             </div>
         </div>
     </header>
-            <!-- Botón Hamburguesa metido aquí dentro para que se alinee a la derecha -->
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="switchLanguage('es')">ES 🇪🇸</button>
-                <span>|</span>
-                <button class="lang-btn" onclick="switchLanguage('en')">EN 🇬🇧</button>
-            </div>
-        </div>
 
     <!-- Sección 1: Hero / Inicio -->
     <section id="inicio" class="hero">
@@ -127,7 +112,6 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h3 id="modal-title">Galería de Productos</h3>
             <div class="modal-gallery-grid" id="modal-gallery-container"></div>
-            
             <div id="modal-description" class="modal-description-text"></div>
         </div>
     </div>
@@ -147,106 +131,4 @@
                     <p data-es="Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor." data-en="Fast and safe refuelling with high-quality fuel for optimal engine performance.">Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor.</p>
                     <button class="btn-gallery" onclick="openModal('modal-surtidor')" data-es='<i class="fa-solid fa-images"></i> Ver surtidores' data-en='<i class="fa-solid fa-images"></i> View fuel pumps'>
                         <i class="fa-solid fa-images"></i> Ver surtidores
-                    </button>
-                </div>
-
-                <!-- Tarjeta 2: Presión de Neumáticos -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-car-burst"></i></div>
-                    <h3 data-es="Presión de Neumáticos" data-en="Tyre Pressure">Presión de Neumáticos</h3>
-                    <p data-es="Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda." data-en="Dedicated area to check and adjust your tyre pressure conveniently.">Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda.</p>
-                    <button class="btn-gallery" onclick="openModal('modal-aire')" data-es='<i class="fa-solid fa-images"></i> Ver aire y agua' data-en='<i class="fa-solid fa-images"></i> View air & water'>
-                        <i class="fa-solid fa-images"></i> Ver aire y agua
-                    </button>
-                </div> 
-
-                <!-- Tarjeta 3: Venta de Butano -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
-                    <h3 data-es="Venta de Butano" data-en="Butane Gas Sales">Venta de Butano</h3>
-                    <p data-es="Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales." data-en="Butane gas cylinder sales available for homes and professionals.">Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales.</p>
-                    <button class="btn-gallery" onclick="openModal('modal-butano')" data-es='<i class="fa-solid fa-images"></i> Ver zona de butano' data-en='<i class="fa-solid fa-images"></i> View butane area'>
-                        <i class="fa-solid fa-images"></i> Ver zona de butano
-                    </button>
-                </div> 
-
-                <!-- Tarjeta 4: Área de Lavado -->
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
-                    <h3 data-es="Área de Lavado" data-en="Car Wash Area">Área de Lavado</h3>
-                    <p data-es="Mantén tu vehículo impecable con nuestras opciones de lavado a presión." data-en="Keep your vehicle spotless with our high-pressure car wash facilities.">Mantén tu vehículo impecable con nuestras opciones de lavado a presión.</p>
-                    <button class="btn-gallery" onclick="openModal('modal-lavadero')" data-es='<i class="fa-solid fa-images"></i> Ver lavadero' data-en='<i class="fa-solid fa-images"></i> View car wash'>
-                        <i class="fa-solid fa-images"></i> View car wash
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección 4: Ubicación / Mapa -->
-    <section id="mapa" class="section bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2><i class="fa-solid fa-map-location-dot"></i> <span data-es="Dónde Encontrarnos" data-en="Where to Find Us">Dónde Encontrarnos</span></h2>
-                <p data-es="Ven a visitarnos en Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería." data-en="Visit us at Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería.">Ven a visitarnos en Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería.</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3183.123456789!2d-2.234567!3d37.345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd70123456789!2sCamino%20de%20Cantoria%20a%20Alb%C3%A1nchez%2C%2047%2C%2004858%20Alb%C3%A1nchez%2C%20Almer%C3%ADa!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Botones Flotantes Desplegables -->
-    <div class="social-float-container">
-        <div class="social-float-menu">
-            <a href="https://wa.me/34657702210" class="float-item whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/share/1LPqU2Qc51/" class="float-item facebook" target="_blank" aria-label="Visítanos en Facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-        </div>
-        <button class="whatsapp-float" aria-label="Abrir opciones de contacto y redes">
-            <i class="fa-solid fa-comments"></i>
-        </button>
-    </div>
-
-    <!-- Pie de Página Profesional -->
-    <footer id="contacto" class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <a href="#inicio" class="footer-logo">
-                    <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img footer-logo-img">
-                    <div class="logo-text">
-                        <span class="brand-carburantes">CARBURANTES</span>
-                        <span class="brand-filabres">Filabres</span>
-                    </div>
-                </a>
-                <p data-es="Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días." 
-                   data-en="Your trusted service station and shop in Albánchez. Open every day.">
-                   Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días.
-                </p>
-            </div>
-
-            <div class="footer-col">
-                <h4 data-es="Horarios" data-en="Opening Hours">Horarios</h4>
-                <p><i class="fa-regular fa-clock"></i> <strong data-es="Lunes a Sábado:" data-en="Monday to Saturday:">Lunes a Sábado:</strong> 7:00h - 22:00h</p>
-                <p><i class="fa-regular fa-clock"></i> <strong data-es="Domingos:" data-en="Sundays:">Domingos:</strong> 8:00h - 21:00h</p>
-            </div>
-
-            <div class="footer-col footer-col-contact">
-                <h4 data-es="Contacto" data-en="Contact Us">Contacto</h4>
-                <p><i class="fa-solid fa-location-dot"></i> Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería</p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+34657702210">+34 657 70 22 10</a></p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> Carburantes Filabres. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
-        </div>
-    </footer>
-
-    <!-- Script de JS -->
-    <script src="js/main.js"></script>
-</body>
-</html>
+                    </button
