@@ -76,19 +76,41 @@ html {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    padding: 0 2rem; /* Asegura un margen interno adecuado */
+}
+/* Selector de Idioma (ES / EN) */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
-/* Logo pegado (gap cambiado a 0 o muy pequeño) */
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    color: var(--primary);
+    background-color: rgba(220, 38, 38, 0.1);
+}
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.2rem; /* Reducido al mínimo para que esté pegado al logo */
+    gap: 0.85rem;
     text-decoration: none;
 }
 
 .logo-img {
-    height: 50px;
+    height: 55px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -120,19 +142,20 @@ html {
     letter-spacing: -0.3px;
 }
 
+.logo i {
+    color: var(--primary);
+}
+
 .nav-menu ul {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 600;
-    font-size: 1.1rem;
     transition: var(--transition);
 }
 
@@ -140,52 +163,18 @@ html {
     color: var(--primary);
 }
 
-/* Contenedor para alinear el botón de "Cómo llegar" y el selector de idiomas juntos a la derecha */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
 .btn-primary {
     background-color: var(--primary);
     color: var(--white);
-    padding: 0.60rem 1.2rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
     transition: var(--transition);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
-}
-
-/* Selector de Idioma (ES / EN) limpio sin duplicados */
-.lang-switch {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-
-.lang-btn {
-    background: none;
-    border: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: var(--transition);
-    padding: 0.2rem 0.3rem;
-    border-radius: 4px;
-}
-
-.lang-btn.active, .lang-btn:hover {
-    color: var(--primary);
-    background-color: rgba(220, 38, 38, 0.1);
 }
 
 .menu-toggle {
@@ -196,6 +185,7 @@ html {
     cursor: pointer;
     color: var(--dark);
 }
+
 /* ==========================================================================
    SECCIÓN HERO / INICIO CON FOTO REAL
    ========================================================================== */
@@ -686,30 +676,19 @@ footer#mapa {
 }
 
 /* ==========================================================================
-   DISEÑO RESPONSIVO (MÓVILES) - SIN TOCAR EL HTML
+   DISEÑO RESPONSIVO (MÓVILES)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Contenedor principal de la cabecera en móvil */
-    .nav-container {
-        padding: 0 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Ocultar el menú de navegación clásico para que no ocupe espacio */
     .nav-menu {
         position: absolute;
         top: 80px;
         left: -100%;
         width: 100%;
         background-color: var(--white);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         transition: var(--transition);
-        z-index: 999;
     }
 
-    /* Clase activa para mostrar el menú desplegable */
     .nav-menu.active {
         left: 0;
     }
@@ -721,40 +700,98 @@ footer#mapa {
         text-align: center;
     }
 
-    /* Mostrar el botón hamburguesa y ordenarlo a la derecha */
     .menu-toggle {
-        display: block !important;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--dark);
-        order: 2; /* Se coloca justo antes de las acciones de la derecha */
+        display: block;
     }
 
-    /* Ajustar las acciones de la derecha (idioma / botón) */
-    .header-actions {
-        order: 3;
-        display: flex;
-        align-items: center;
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+/* ==========================================================================
+   AJUSTES ESPECÍFICOS PARA MÓVIL
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Contenedor de la cabecera */
+    .nav-container {
+        padding: 0 1rem;
         gap: 0.5rem;
     }
 
-    
+    /* Logo adaptado para pantallas pequeñas */
+    .logo-img {
+        height: 42px; 
+    }
 
-    /* Ajustes generales de textos en móvil */
+    .brand-carburantes {
+        font-size: 1rem;
+    }
+
+    .brand-filabres {
+        font-size: 1.1rem;
+    }
+
+    /* Ocultar el botón rojo 'Cómo Llegar' de la cabecera solo en móviles para dar espacio */
+    .nav-container > .btn-primary {
+        display: none;
+    }
+
+    /* Ajustar selector de idiomas en móvil */
+    .lang-switch {
+        font-size: 0.85rem;
+        gap: 0.25rem;
+    }
+
+    .lang-btn {
+        padding: 0.1rem 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    /* Botón hamburguesa bien posicionamiento */
+    .menu-toggle {
+        display: block;
+        font-size: 1.4rem;
+        padding: 0.4rem;
+        color: var(--dark);
+    }
+
+    /* Menú desplegable móvil */
+    .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        transition: var(--transition);
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    /* Ajuste de textos en el Hero para que no ocupen toda la pantalla */
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
     }
 
     .hero p {
         font-size: 0.98rem;
     }
-}
 
-/* ==========================================================================
-   ESTILOS GENERALES DE MODALES (Recomendado sacarlo fuera del media query)
-   ========================================================================== */
+    /* Estilo para la descripción dentro de los modales de galería */
 .modal-description-text {
     margin-top: 1.5rem;
     padding: 1rem 1.25rem;
@@ -769,4 +806,5 @@ footer#mapa {
 .modal-description-text i {
     color: var(--primary);
     margin-right: 0.5rem;
+}
 }
