@@ -686,24 +686,30 @@ footer#mapa {
 }
 
 /* ==========================================================================
-   DISEÑO RESPONSIVO (MÓVILES) - ORIGINAL LIMPIO
+   DISEÑO RESPONSIVO (MÓVILES) - SIN TOCAR EL HTML
    ========================================================================== */
 @media (max-width: 768px) {
+    /* Contenedor principal de la cabecera en móvil */
     .nav-container {
         padding: 0 1rem;
+        display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
+    /* Ocultar el menú de navegación clásico para que no ocupe espacio */
     .nav-menu {
         position: absolute;
         top: 80px;
         left: -100%;
         width: 100%;
         background-color: var(--white);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
+        z-index: 999;
     }
 
+    /* Clase activa para mostrar el menú desplegable */
     .nav-menu.active {
         left: 0;
     }
@@ -715,16 +721,34 @@ footer#mapa {
         text-align: center;
     }
 
+    /* Mostrar el botón hamburguesa y ordenarlo a la derecha */
     .menu-toggle {
-        display: block;
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--dark);
+        order: 2; /* Se coloca justo antes de las acciones de la derecha */
     }
 
+    /* Ajustar las acciones de la derecha (idioma / botón) */
+    .header-actions {
+        order: 3;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    
+
+    /* Ajustes generales de textos en móvil */
     .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 }
 
