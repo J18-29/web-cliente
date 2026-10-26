@@ -695,35 +695,30 @@ footer#mapa {
         justify-content: space-between;
     }
 
-    .logo-img {
-        height: 42px; 
-    }
-
-    .brand-carburantes {
-        font-size: 1rem;
-    }
-
-    .brand-filabres {
-        font-size: 1.1rem;
-    }
-
-    /* Ocultar completamente el botón 'Cómo Llegar' en la barra móvil */
+    /* Ocultar el botón 'Cómo Llegar' en móvil */
     .header-actions .btn-primary {
         display: none !important;
     }
 
-    /* Mostrar el botón hamburguesa */
+    /* Asegurar que las acciones de la derecha se lleven bien */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    /* Mostrar el botón hamburguesa ordenado a la derecha */
     .menu-toggle {
         display: block !important;
         font-size: 1.4rem;
-        padding: 0.4rem;
-        color: var(--dark);
         background: none;
         border: none;
         cursor: pointer;
+        color: var(--dark);
+        padding: 0.2rem;
     }
 
-    /* Menú desplegable móvil */
+    /* El resto de tu menú desplegable se queda igual */
     .nav-menu {
         position: absolute;
         top: 80px;
@@ -745,6 +740,7 @@ footer#mapa {
         gap: 1.25rem;
         text-align: center;
     }
+}
 
     /* Ajustes del Hero */
     .hero h1 {
@@ -754,7 +750,7 @@ footer#mapa {
     .hero p {
         font-size: 0.98rem;
     }
-}
+
 
 /* ==========================================================================
    ESTILOS GENERALES DE MODALES (Recomendado sacarlo fuera del media query)
