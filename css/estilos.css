@@ -132,6 +132,7 @@ html {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 600;
+    font-size: 1.1rem;
     transition: var(--transition);
 }
 
