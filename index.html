@@ -19,31 +19,33 @@
     <header class="header">
         <div class="container nav-container">
             <a href="#inicio" class="logo">
-            <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img">
-            <div class="logo-text">
-            <span class="brand-carburantes">CARBURANTES</span>
-            <span class="brand-filabres">Filabres</span>
-        </div>
-             </a>
+                <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand-carburantes">CARBURANTES</span>
+                    <span class="brand-filabres">Filabres</span>
+                </div>
+            </a>
+
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
                     <li><a href="#tienda" data-es="Tienda & Café" data-en="Shop & Coffee">Tienda & Café</a></li>
                     <li><a href="#gasolinera" data-es="Gasolinera" data-en="Petrol Station">Gasolinera</a></li>
-                    <li><a href="#contacto" data-es="Ubicación" data-en="Location">Ubicación</a></li>
                     <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
             </nav>
 
-            <!-- Selector de Idioma -->
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="switchLanguage('es')">ES 🇪🇸</button>
-                <span>|</span>
-                <button class="lang-btn" onclick="switchLanguage('en')">EN 🇬🇧</button>
-            </div>
+            <div class="header-actions">
+                <!-- Cómo Llegar lleva al Mapa (#mapa) -->
+                <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
 
-            <a href="#contacto" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
-            <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+                <!-- Selector de Idioma -->
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="switchLanguage('es')">ES 🇪🇸</button>
+                    <span>|</span>
+                    <button class="lang-btn" onclick="switchLanguage('en')">EN 🇬🇧</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -56,12 +58,10 @@
             <h1 data-es="Carburantes Filabres & Tienda SPAR City" data-en="Carburantes Filabres & SPAR City Shop">Carburantes Filabres & Tienda SPAR City</h1>
             <p data-es="Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino." data-en="Your trusted petrol station in Albánchez. Refuel with high-quality fuel, do your daily grocery shopping in our supermarket and enjoy a coffee break.">Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino.</p>
             <div class="hero-buttons">
-                <a href="#contacto" class="btn-light" data-es='<i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas' data-en='<i class="fa-solid fa-location-dot"></i> View Location & Map'><i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas</a>
+                <a href="#mapa" class="btn-light" data-es='<i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas' data-en='<i class="fa-solid fa-location-dot"></i> View Location & Map'>
+                    <i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas
+                </a>
             </div>
-           <a href="#mapa" class="btn-light" data-es='<i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas' data-en='<i class="fa-solid fa-location-dot"></i> View Location & Map'>
-        <i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas
-    </a>
-</div>
         </div>
     </section>
 
@@ -85,13 +85,14 @@
 
                 <!-- Tarjeta Café -->
                 <div class="card">
-    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
-    <h3 data-es="Rincón de Café y Pausa" data-en="Coffee & Snack Corner">Rincón de Café y Pausa</h3>
-    <p data-es="Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta." data-en="Enjoy freshly brewed coffee or cold drinks to take a quick break before continuing your journey.">Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
-    <button class="btn-gallery" onclick="openModal('modal-cafe')" data-es='<i class="fa-solid fa-images"></i> Ver galería' data-en='<i class="fa-solid fa-images"></i> View gallery'>
-        <i class="fa-solid fa-images"></i> Ver galería
-    </button>
-</div>
+                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3 data-es="Rincón de Café y Pausa" data-en="Coffee & Snack Corner">Rincón de Café y Pausa</h3>
+                    <p data-es="Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta." data-en="Enjoy freshly brewed coffee or cold drinks to take a quick break before continuing your journey.">Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-cafe')" data-es='<i class="fa-solid fa-images"></i> Ver galería' data-en='<i class="fa-solid fa-images"></i> View gallery'>
+                        <i class="fa-solid fa-images"></i> Ver galería
+                    </button>
+                </div>
+
                 <!-- Tarjeta Bebidas e Hielo -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
@@ -105,14 +106,12 @@
         </div>
     </section>
 
-   <!-- Modal / Galería de Productos e Instalaciones -->
+    <!-- Modal / Galería de Productos e Instalaciones -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h3 id="modal-title">Galería de Productos</h3>
             <div class="modal-gallery-grid" id="modal-gallery-container"></div>
-
-            <!-- Texto descriptivo dinámico para la cafetería u otros servicios -->
             <div id="modal-description" class="modal-description-text"></div>
         </div>
     </div>
@@ -140,9 +139,22 @@
                     <div class="card-icon"><i class="fa-solid fa-car-burst"></i></div>
                     <h3 data-es="Presión de Neumáticos" data-en="Tyre Pressure">Presión de Neumáticos</h3>
                     <p data-es="Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda." data-en="Dedicated area to check and adjust your tyre pressure conveniently.">Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-aire')" data-es='<i class="fa-solid fa-images"></i> Ver aire y agua' data-en='<i class="fa-solid fa-images"></i> View air & water'>
+                        <i class="fa-solid fa-images"></i> Ver aire y agua
+                    </button>
                 </div>
 
-                <!-- Tarjeta 3: Área de Lavado -->
+                <!-- Tarjeta 3: Venta de Butano -->
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
+                    <h3 data-es="Venta de Butano" data-en="Butane Gas Sales">Venta de Butano</h3>
+                    <p data-es="Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales." data-en="Butane gas cylinder sales available for homes and professionals.">Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales.</p>
+                    <button class="btn-gallery" onclick="openModal('modal-butano')" data-es='<i class="fa-solid fa-images"></i> Ver zona de butano' data-en='<i class="fa-solid fa-images"></i> View butane area'>
+                        <i class="fa-solid fa-images"></i> Ver zona de butano
+                    </button>
+                </div>
+
+                <!-- Tarjeta 4: Área de Lavado -->
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
                     <h3 data-es="Área de Lavado" data-en="Car Wash Area">Área de Lavado</h3>
@@ -155,10 +167,6 @@
         </div>
     </section>
 
-
-
-    <!-- Sección 4: Contacto -->
-    <section id="contacto" class="section bg-light">
     <!-- Sección 4: Ubicación / Mapa -->
     <section id="mapa" class="section bg-light">
         <div class="container">
@@ -187,45 +195,42 @@
         </button>
     </div>
 
-<!-- Pie de Página Profesional -->
-<footer class="footer">
-<footer id="contacto" class="footer">
-    <div class="container footer-grid">
-        <!-- Columna 1: Logo y descripción -->
-        <div class="footer-col">
-            <a href="#inicio" class="footer-logo">
-                <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img footer-logo-img">
-                <div class="logo-text">
-                    <span class="brand-carburantes">CARBURANTES</span>
-                    <span class="brand-filabres">Filabres</span>
-                </div>
-            </a>
-            <p data-es="Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días." 
-               data-en="Your trusted service station and shop in Albánchez. Open every day.">
-               Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días.
-            </p>
+    <!-- Pie de Página Profesional -->
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#inicio" class="footer-logo">
+                    <img src="assets/img/logo-gaso.png" alt="Logo Carburantes Filabres" class="logo-img footer-logo-img">
+                    <div class="logo-text">
+                        <span class="brand-carburantes">CARBURANTES</span>
+                        <span class="brand-filabres">Filabres</span>
+                    </div>
+                </a>
+                <p data-es="Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días." 
+                   data-en="Your trusted service station and shop in Albánchez. Open every day.">
+                   Tu estación de servicio y tienda de confianza en Albánchez. Abierto todos los días.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-es="Horarios" data-en="Opening Hours">Horarios</h4>
+                <p><i class="fa-regular fa-clock"></i> <strong data-es="Lunes a Sábado:" data-en="Monday to Saturday:">Lunes a Sábado:</strong> 7:00h - 22:00h</p>
+                <p><i class="fa-regular fa-clock"></i> <strong data-es="Domingos:" data-en="Sundays:">Domingos:</strong> 8:00h - 21:00h</p>
+            </div>
+
+            <div class="footer-col footer-col-contact">
+                <h4 data-es="Contacto" data-en="Contact Us">Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+34657702210">+34 657 70 22 10</a></p>
+            </div>
         </div>
 
-        <!-- Columna 2: Horarios -->
-        <div class="footer-col">
-            <h4 data-es="Horarios" data-en="Opening Hours">Horarios</h4>
-            <p><i class="fa-regular fa-clock"></i> <strong data-es="Lunes a Sábado:" data-en="Monday to Saturday:">Lunes a Sábado:</strong> 7:00h - 22:00h</p>
-            <p><i class="fa-regular fa-clock"></i> <strong data-es="Domingos:" data-en="Sundays:">Domingos:</strong> 8:00h - 21:00h</p>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Carburantes Filabres. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
         </div>
+    </footer>
 
-        <!-- Columna 3: Contacto y ubicación -->
-        <div class="footer-col footer-col-contact">
-            <h4 data-es="Contacto" data-en="Contact Us">Contacto</h4>
-            <p><i class="fa-solid fa-location-dot"></i> Camino de Cantoria a Albánchez, 47, 04858 Albánchez, Almería</p>
-            <p><i class="fa-solid fa-phone"></i> <a href="tel:+34657702210">+34 657 70 22 10</a></p>
-        </div>
-    </div>
-
-    <!-- Barra inferior de copyright -->
-    <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Carburantes Filabres. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
-    </div>
-</footer>
     <!-- Script de JS -->
     <script src="js/main.js"></script>
 </body>
+</html>
