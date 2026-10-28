@@ -5,28 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carburantes Filabres | Gasolinera y Supermercado en Albánchez</title>
 
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2E6P5BZWB9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E6P5BZWB9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-2E6P5BZWB9');
-</script>
+      gtag('config', 'G-2E6P5BZWB9');
+    </script>
 
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Fuente Google Fonts (Oswald para CARBURANTES) -->
+    
+    <!-- Fuentes Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-    <!-- Estilos CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librerías Externas de Vanguardia para Innovación -->
+    <!-- 1. Three.js (Gráficos 3D WebGL) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   
+    <!-- 3. GSAP (Animaciones ultra fluidas) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Estilos CSS Principales -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <!-- Cabecera / Navegación -->
+   
+
+    
+    <!-- Cabecera / Navegación Superior -->
     <header class="header">
         <div class="container nav-container">
             <a href="#inicio" class="logo">
@@ -47,7 +59,13 @@
             </nav>
 
             <div class="header-actions">
-                <!-- Cómo Llegar lleva al Mapa (#mapa) -->
+                <!-- Estado en Tiempo Real (Abierto/Cerrado) -->
+                <div id="live-status-badge" class="status-badge open">
+                    <span class="dot"></span>
+                    <span id="status-text" data-es="Abierto ahora" data-en="Open Now">Abierto ahora</span>
+                </div>
+
+                <!-- Botón de Ubicación -->
                 <a href="#mapa" class="btn-primary" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
 
                 <!-- Selector de Idioma -->
@@ -63,15 +81,22 @@
     <!-- Sección 1: Hero / Inicio -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <div class="badge" data-es='<i class="fa-regular fa-clock"></i> Abierto todos los días' data-en='<i class="fa-regular fa-clock"></i> Open Every Day'>
-                <i class="fa-regular fa-clock"></i> Abierto todos los días
-            </div>
-            <h1 data-es="Carburantes Filabres & Tienda SPAR City" data-en="Carburantes Filabres & SPAR City Shop">Carburantes Filabres & Tienda SPAR City</h1>
-            <p data-es="Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino." data-en="Your trusted petrol station in Albánchez. Refuel with high-quality fuel, do your daily grocery shopping in our supermarket and enjoy a coffee break.">Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino.</p>
+            
+            
+            <h1 data-es="Carburantes Filabres & Tienda SPAR City" data-en="Carburantes Filabres & SPAR City Shop">
+                Carburantes Filabres & Tienda SPAR City
+            </h1>
+            
+            <p data-es="Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino." 
+               data-en="Your trusted petrol station in Albánchez. Refuel with high-quality fuel, do your daily grocery shopping in our supermarket and enjoy a coffee break.">
+                Tu estación de servicio de confianza en Albánchez. Reposta combustible de calidad, haz tus compras diarias en nuestro supermercado y disfruta de una pausa en tu camino.
+            </p>
+
             <div class="hero-buttons">
                 <a href="#mapa" class="btn-light" data-es='<i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas' data-en='<i class="fa-solid fa-location-dot"></i> View Location & Map'>
                     <i class="fa-solid fa-location-dot"></i> Ver Ubicación y Mapas
                 </a>
+                
             </div>
         </div>
     </section>
@@ -83,9 +108,10 @@
                 <h2><i class="fa-solid fa-store"></i> <span data-es="Tienda, Supermercado & Servicio de Café" data-en="Shop, Supermarket & Coffee Service">Tienda, Supermercado & Servicio de Café</span></h2>
                 <p data-es="Todo lo que necesitas para tus compras diarias y tu pausa en el camino." data-en="Everything you need for your daily shopping and a relaxing break.">Todo lo que necesitas para tus compras diarias y tu pausa en el camino.</p>
             </div>
+
             <div class="cards-grid">
                 <!-- Tarjeta Supermercado -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-basket-shopping"></i></div>
                     <h3 data-es="Supermercado y Despensa" data-en="Supermarket & Grocery">Supermercado y Despensa</h3>
                     <p data-es="Amplia variedad en alimentación, galletas, bollería, conservas, dulces, snacks y productos de limpieza e higiene para el hogar." data-en="Wide range of food, biscuits, pastries, preserves, sweets, snacks, and home cleaning products.">Amplia variedad en alimentación, galletas, bollería, conservas, dulces, snacks y productos de limpieza e higiene para el hogar.</p>
@@ -95,7 +121,7 @@
                 </div>
 
                 <!-- Tarjeta Café -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
                     <h3 data-es="Rincón de Café y Pausa" data-en="Coffee & Snack Corner">Rincón de Café y Pausa</h3>
                     <p data-es="Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta." data-en="Enjoy freshly brewed coffee or cold drinks to take a quick break before continuing your journey.">Disfruta de un café recién hecho o un refresco para tomarte un descanso rápido antes de continuar tu ruta.</p>
@@ -105,7 +131,7 @@
                 </div>
 
                 <!-- Tarjeta Bebidas e Hielo -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
                     <h3 data-es="Hielo, Vinos y Bebidas Frías" data-en="Ice, Wine & Cold Drinks">Hielo, Vinos y Bebidas Frías</h3>
                     <p data-es="Bolsas de hielo disponibles todo el año, refrescos, cervezas, zumos, vinos y bebidas espirituosas siempre frías." data-en="Ice bags available all year round, soft drinks, beers, juices, wines, and spirits always chilled.">Bolsas de hielo disponibles todo el año, refrescos, cervezas, zumos, vinos y bebidas espirituosas siempre frías.</p>
@@ -117,26 +143,17 @@
         </div>
     </section>
 
-    <!-- Modal / Galería de Productos e Instalaciones -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3 id="modal-title">Galería de Productos</h3>
-            <div class="modal-gallery-grid" id="modal-gallery-container"></div>
-            <div id="modal-description" class="modal-description-text"></div>
-        </div>
-    </div>
-
-    <!-- Sección 3: Gasolinera -->
+    <!-- Sección 3: Gasolinera & Servicios -->
     <section id="gasolinera" class="section">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fa-solid fa-gas-pump"></i> <span data-es="Estación de Servicio" data-en="Petrol Station Services">Estación de Servicio</span></h2>
                 <p data-es="Servicios diseñados para cuidar de tu vehículo en ruta." data-en="Services designed to take care of your vehicle on the road.">Servicios diseñados para cuidar de tu vehículo en ruta.</p>
             </div>
+
             <div class="cards-grid">
                 <!-- Tarjeta 1: Combustible -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
                     <h3 data-es="Combustible de Calidad" data-en="Quality Fuel">Combustible de Calidad</h3>
                     <p data-es="Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor." data-en="Fast and safe refuelling with high-quality fuel for optimal engine performance.">Repostaje rápido y seguro con carburantes optimizados para el rendimiento de tu motor.</p>
@@ -146,7 +163,7 @@
                 </div>
 
                 <!-- Tarjeta 2: Presión de Neumáticos -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-car-burst"></i></div>
                     <h3 data-es="Presión de Neumáticos" data-en="Tyre Pressure">Presión de Neumáticos</h3>
                     <p data-es="Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda." data-en="Dedicated area to check and adjust your tyre pressure conveniently.">Zona habilitada para revisar y ajustar la presión de tus neumáticos de forma cómoda.</p>
@@ -156,7 +173,7 @@
                 </div>
 
                 <!-- Tarjeta 3: Venta de Butano -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
                     <h3 data-es="Venta de Butano" data-en="Butane Gas Sales">Venta de Butano</h3>
                     <p data-es="Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales." data-en="Butane gas cylinder sales available for homes and professionals.">Disponemos de servicio de venta de bombonas de gas butano para hogares y profesionales.</p>
@@ -166,7 +183,7 @@
                 </div>
 
                 <!-- Tarjeta 4: Área de Lavado -->
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
                     <h3 data-es="Área de Lavado" data-en="Car Wash Area">Área de Lavado</h3>
                     <p data-es="Mantén tu vehículo impecable con nuestras opciones de lavado a presión." data-en="Keep your vehicle spotless with our high-pressure car wash facilities.">Mantén tu vehículo impecable con nuestras opciones de lavado a presión.</p>
@@ -178,8 +195,20 @@
         </div>
     </section>
 
-    <!-- Sección 4: Ubicación / Mapa -->
-    <section id="mapa" class="section bg-light">
+   
+
+    <!-- Modal / Galería de Productos e Instalaciones -->
+    <div id="productModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title">Galería de Productos</h3>
+            <div class="modal-gallery-grid" id="modal-gallery-container"></div>
+            <div id="modal-description" class="modal-description-text"></div>
+        </div>
+    </div>
+
+    <!-- Sección 5: Ubicación / Mapa -->
+    <section id="mapa" class="section">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fa-solid fa-map-location-dot"></i> <span data-es="Dónde Encontrarnos" data-en="Where to Find Us">Dónde Encontrarnos</span></h2>
@@ -241,7 +270,7 @@
         </div>
     </footer>
 
-    <!-- Script de JS -->
+    <!-- Script de JS Principal -->
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,13 +1,16 @@
-// --- JS PRINCIPAL DE CARBURANTES FILABRES ---
+// --- JS AVANZADO E INNOVADOR DE CARBURANTES FILABRES ---
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initHeaderScroll();
     initSmoothScroll();
     initDynamicYear();
-    initProductGalleries();
     initImageZoom();
+    initProductGalleries();
     initFloatingMenu();
+    initLiveStoreStatus();
+    
+    
 });
 
 // 1. Menú móvil (Hamburguesa)
@@ -30,6 +33,7 @@ function initMobileMenu() {
             navMenu.classList.toggle('active');
             const isOpen = navMenu.classList.contains('active');
             menuToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            playClickSound();
         });
 
         document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -77,7 +81,70 @@ function initDynamicYear() {
     }
 }
 
-// Datos y control de las galerías modales de fotos (Incluyendo Aire/Agua y Butano)
+// 5. Estado de apertura en Tiempo Real según Horarios Oficiales
+function initLiveStoreStatus() {
+    const statusBadge = document.getElementById('live-status-badge');
+    const statusText = document.getElementById('status-text');
+    if (!statusBadge || !statusText) return;
+
+    const now = new Date();
+    const day = now.getDay(); // 0 = Domingo, 1-6 = Lunes a Sábado
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTimeMinutes = hour * 60 + minutes;
+
+    let isOpen = false;
+
+    // Lunes a Sábado: 7:00h - 22:00h (425 a 1320 minutos)
+    // Domingos: 8:00h - 21:00h (480 a 1260 minutos)
+    if (day >= 1 && day <= 6) {
+        if (currentTimeMinutes >= 425 && currentTimeMinutes <= 1320) isOpen = true;
+    } else {
+        if (currentTimeMinutes >= 480 && currentTimeMinutes <= 1260) isOpen = true;
+    }
+
+    if (isOpen) {
+        statusBadge.className = 'status-badge open';
+        statusText.textContent = (currentLang === 'en') ? 'Open Now' : 'Abierto ahora';
+    } else {
+        statusBadge.className = 'status-badge closed';
+        statusText.textContent = (currentLang === 'en') ? 'Closed Now' : 'Cerrado ahora';
+    }
+}
+
+// 6. Visor de zoom individual para las fotos de la galería
+function initImageZoom() {
+    let zoomModal = document.getElementById('imageZoomModal');
+    if (!zoomModal) {
+        zoomModal = document.createElement('div');
+        zoomModal.id = 'imageZoomModal';
+        zoomModal.classList.add('image-zoom-modal');
+        zoomModal.innerHTML = '<img id="zoomModalImg" src="" alt="Zoom de imagen Carburantes Filabres">';
+        document.body.appendChild(zoomModal);
+    }
+
+    const zoomImg = document.getElementById('zoomModalImg');
+
+    // Escuchar clics en las imágenes que están dentro del contenedor de la galería
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('#modal-gallery-container img')) {
+            zoomImg.src = e.target.src;
+            zoomModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Al hacer clic en cualquier parte del modal de zoom, se cierra y vuelve a la galería
+    zoomModal.addEventListener('click', () => {
+        zoomModal.style.display = 'none';
+        const mainModal = document.getElementById('productModal');
+        document.body.style.overflow = (mainModal && mainModal.classList.contains('active')) ? 'hidden' : 'auto';
+    });
+}
+
+
+
+// 7. Datos y control de las galerías modales de fotos
 const productGalleries = {
     'modal-super': {
         title: 'Supermercado, Despensa y Limpieza',
@@ -100,7 +167,7 @@ const productGalleries = {
     'modal-surtidor': {
         title: 'Estación de Servicio y Surtidores',
         images: ['assets/img/imagen11.jpeg'],
-        descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina .',
+        descEs: 'Surtidores multiproducto de alta precisión para un repostaje rápido y seguro de diésel y gasolina.',
         descEn: 'High-precision multi-product fuel pumps for fast and safe diesel and petrol refuelling with competitive display prices.'
     },
     'modal-lavadero': {
@@ -132,7 +199,6 @@ function openModal(categoryKey) {
     const data = productGalleries[categoryKey];
     if (!data || !modal) return;
 
-    // Cambiar título según el idioma
     if (modalTitle) {
         if (typeof currentLang !== 'undefined' && currentLang === 'en') {
             const englishTitles = {
@@ -150,7 +216,6 @@ function openModal(categoryKey) {
         }
     }
 
-    // Inyectar imágenes en la galería
     if (galleryContainer) {
         galleryContainer.innerHTML = '';
         data.images.forEach(imgPath => {
@@ -162,7 +227,6 @@ function openModal(categoryKey) {
         });
     }
 
-    // Inyectar descripción si la tiene (y cambiarla según el idioma)
     if (modalDescription) {
         const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
         const textToDisplay = (lang === 'en') ? data.descEn : data.descEs;
@@ -178,6 +242,7 @@ function openModal(categoryKey) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    playClickSound();
 }
 
 function closeModal() {
@@ -195,35 +260,9 @@ function initProductGalleries() {
     });
 }
 
-// 6. Visor de zoom individual para las fotos
-function initImageZoom() {
-    let zoomModal = document.getElementById('imageZoomModal');
-    if (!zoomModal) {
-        zoomModal = document.createElement('div');
-        zoomModal.id = 'imageZoomModal';
-        zoomModal.classList.add('image-zoom-modal');
-        zoomModal.innerHTML = '<img id="zoomModalImg" src="" alt="Zoom de producto">';
-        document.body.appendChild(zoomModal);
-    }
 
-    const zoomImg = document.getElementById('zoomModalImg');
 
-    document.addEventListener('click', (e) => {
-        if (e.target.matches('#modal-gallery-container img')) {
-            zoomImg.src = e.target.src;
-            zoomModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    });
-
-    zoomModal.addEventListener('click', () => {
-        zoomModal.style.display = 'none';
-        const mainModal = document.getElementById('productModal');
-        document.body.style.overflow = (mainModal && mainModal.classList.contains('active')) ? 'hidden' : 'auto';
-    });
-}
-
-// 7. Despliegue del botón flotante en móviles
+// 9. Despliegue del botón flotante de redes
 function initFloatingMenu() {
     const container = document.querySelector('.social-float-container');
     const mainButton = document.querySelector('.whatsapp-float');
@@ -232,6 +271,7 @@ function initFloatingMenu() {
         mainButton.addEventListener('click', (e) => {
             e.stopPropagation();
             container.classList.toggle('active');
+            playClickSound();
         });
 
         document.addEventListener('click', () => {
@@ -240,22 +280,26 @@ function initFloatingMenu() {
     }
 }
 
-// 8. Cambio dinámico de idioma (ESPAÑOL / INGLÉS)
+// 10. Cambio dinámico de idioma (ESPAÑOL / INGLÉS)
 let currentLang = 'es';
 
 function switchLanguage(lang) {
     currentLang = lang;
 
-    // Actualizar clase activa en los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang));
     });
 
-    // Cambiar elementos con atributos data-es / data-en
     document.querySelectorAll('[data-es]').forEach(elem => {
         const text = elem.getAttribute(`data-${lang}`);
         if (text) {
             elem.innerHTML = text;
         }
     });
+
+    initLiveStoreStatus();
+    playClickSound();
 }
+
+
+
