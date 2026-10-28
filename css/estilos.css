@@ -935,56 +935,66 @@ html {
 
 @media (max-width: 768px) {
     .nav-container { 
-        padding: 0.5rem 1rem; 
+        padding: 0.5rem 0.75rem; 
         height: 70px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 0.5rem;
     }
     
+    /* Hacemos que el logo sea más compacto en móvil para ganar espacio */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-shrink: 1;
+        min-width: 0; /* Evita que desborde */
+    }
+
     .logo-img { 
-        height: 36px; 
+        height: 32px !important; 
+        width: auto;
     }
     
     .brand-carburantes { 
-        font-size: 0.85rem; 
+        font-size: 0.75rem !important; 
+        line-height: 1.1;
     }
     
     .brand-filabres { 
-        font-size: 0.95rem; 
+        font-size: 0.85rem !important; 
+        line-height: 1.1;
     }
 
-    /* Ocultamos los elementos secundarios de la barra superior principal para que no estorben */
-    .header-actions .status-badge,
-    .header-actions .language-selector {
-        display: none !important; /* Se moverán/integrarán dentro del menú desplegable */
-    }
-
-    /* Dejamos visible el botón rojo de Cómo llegar de forma compacta y elegante */
+    /* Agrupamos los elementos de la derecha (Cómo llegar + Hamburguesa) perfectamente alineados */
     .header-actions {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
+        flex-shrink: 0;
     }
 
     .header-actions .btn-primary { 
         display: inline-flex !important; 
-        padding: 0.4rem 0.75rem;
-        font-size: 0.75rem;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.7rem;
         border-radius: 50px;
+        white-space: nowrap;
     }
 
-    /* Botón hamburguesa limpio a la derecha */
+    /* Botón hamburguesa integrado limpiamente al lado */
     .menu-toggle {
         display: block !important;
         background: none;
         border: none;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         cursor: pointer;
         color: var(--dark);
         padding: 0.2rem;
-        z-index: 1001;
+        line-height: 1;
     }
+}
 
     /* Estilo del menú desplegable móvil integrado y completo */
     .nav-menu {
@@ -1027,4 +1037,3 @@ html {
         grid-template-columns: 1fr; 
         gap: 2rem; 
     }
-}
