@@ -934,31 +934,23 @@ html {
 }
 
 @media (max-width: 768px) {
-    /* Cabecera principal en dos filas perfectamente ordenadas */
+    /* Cabecera limpia y minimalista en una sola línea */
     .nav-container { 
         padding: 0.6rem 1rem; 
-        height: auto;
+        height: 70px;
         display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    /* Fila 1: Logo a la izquierda y Menú hamburguesa a la derecha */
-    .nav-container::before {
-        content: '';
-        display: none;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .logo {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        width: 100%;
-        justify-content: space-between;
     }
 
     .logo-img { 
-        height: 36px !important; 
+        height: 35px !important; 
     }
     
     .brand-carburantes { 
@@ -969,7 +961,14 @@ html {
         font-size: 0.95rem !important; 
     }
 
-    /* Forzamos que el botón hamburguesa aparezca arriba a la derecha al lado del logo */
+    /* Ocultamos los botones sueltos de la barra superior para pasarlos dentro del menú */
+    .header-actions .status-badge,
+    .header-actions .language-selector,
+    .header-actions .btn-primary {
+        display: none !important; 
+    }
+
+    /* Botón hamburguesa elegante a la derecha */
     .menu-toggle {
         display: block !important;
         background: none;
@@ -981,47 +980,18 @@ html {
         line-height: 1;
     }
 
-    /* Fila 2: Acciones secundarias (Estado, Cómo llegar, Idiomas) en una barra inferior limpia */
-    .header-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding-top: 0.5rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
-        gap: 0.4rem;
-    }
-
-    .status-badge { 
-        display: inline-flex !important; 
-        font-size: 0.7rem;
-        padding: 0.25rem 0.5rem;
-    }
-
-    .header-actions .btn-primary { 
-        display: inline-flex !important; 
-        padding: 0.35rem 0.7rem;
-        font-size: 0.75rem;
-        border-radius: 50px;
-    }
-
-    .language-selector {
-        display: flex !important;
-        font-size: 0.8rem;
-    }
-
-    /* Posición correcta del menú desplegable móvil */
+    /* Menú desplegable móvil que incluirá las opciones de forma ordenada */
     .nav-menu {
         position: absolute;
-        top: 110px; /* Justo debajo de las dos filas de la cabecera */
+        top: 70px;
         left: -100%;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(12px);
-        box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
         transition: var(--transition);
         z-index: 999;
-        border-bottom: 2px solid var(--primary);
+        border-bottom: 3px solid var(--primary);
     }
 
     .nav-menu.active {
@@ -1030,23 +1000,21 @@ html {
 
     .nav-menu ul {
         flex-direction: column;
-        padding: 1.5rem 2rem;
-        gap: 1.2rem;
+        padding: 2rem;
+        gap: 1.25rem;
         align-items: center;
         text-align: center;
     }
 
     .nav-menu a {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 700;
+        color: var(--dark);
     }
 
-    .hero {
-        padding-top: 1.5rem;
-    }
-
+    /* Si quieres inyectar visualmente el botón de Cómo llegar y el estado dentro del menú desplegable o mantenerlos accesibles */
     .hero h1 { 
-        font-size: 1.9rem; 
+        font-size: 2rem; 
     }
     .hero p { 
         font-size: 0.95rem; 
